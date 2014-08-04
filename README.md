@@ -58,3 +58,15 @@ Write an [acceptance test](https://github.com/x-team/standards/blob/master/end-u
 - let us know which acceptance test (from `./docs`) you are implementing. You can choose to work on whichever you like.
 - when you have something that meets the acceptance test, send a pull-request.
 - ideally you will be able to include test scripts that automate some or all of the acceptance test.
+
+Tech
+----
+
+- node.js
+- elasticsearch
+
+### Libraries
+
+- http://npmjs.org/package/tape
+- https://www.npmjs.org/package/wd
+- https://www.npmjs.org/package/browserify
