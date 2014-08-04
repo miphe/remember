@@ -1,0 +1,15 @@
+{
+  "name": "remember",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Journals for teams.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "tape": "~2.13.4"
+  },
+  "author": "joshwnj",
+  "license": "MIT"
+}
