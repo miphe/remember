@@ -1,0 +1,19 @@
+# As a user, I want to login
+
+Being unauthorized, visiting this application I want to be presented a login form where I may enter my login details and hit a login button.
+
+## Acceptance tests
+
+- When I go to any URL on this app's domain, then I want to be redirected to a `/login` area if I'm not already logged in.
+- I want to see a field where I can enter my username.
+- I want to see a field where I can enter my password.
+  - When entering my password, I want only stars (*) to show.
+- I want to see a button saying something like 'Login'.
+  - When I click this button I want the form to submit.
+  - When I press the `Enter` key, I want the form to submit.
+  - If the login was _not_ successful, I don't want a page refresh.
+  - If the login was _not_ successful, I want to see a message explaining to me what went wrong and how I may correct it.
+  - If the login was successful, I want to be redirected to an appropriate page (which page that should be will need to be discussed and decided).
+- During the login process, I want an animated symbol to indicate that something is going on (loader).
+- During the login process, I want the login form's submit button to be disabled.
+- During the login process, I want the login form's submit button to _look_ disabled.
