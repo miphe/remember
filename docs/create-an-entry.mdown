@@ -1,0 +1,31 @@
+# As a user, I want to create an entry
+
+Creating, saving and editing an entry should all happen without page refresh.
+
+## Acceptance tests
+
+- There is a form always available above the fold where I can enter details
+to my new entry.
+
+### Entry form
+
+*Tag field*
+
+- There is a field for tagging up your entry in which I can write text.
+- When I start to type in the tag-field, suggestions of previously used tags should be presented for me to choose among. Using the up/down arrows should allow me to select which suggestion I want to choose.
+- When I have added a tag for my entry, I should be able to continue to add more tags. When I hit comma (,) that should be an indication that I'm writing a new tag (tag seperator). I should be able to enter an unlimited amount of tags.
+- When I write a tag that doesn't exist in the database, that tag should be automatically created when the entry is saved.
+
+*Scope field*
+
+- There should be a way to select scope of this entry.
+- If the scope of an entry is 'Only me'. Then I should be the only one who can access this entry.
+- If the scope of an entry is 'My team'. Then only team members of that team should be able to access this entry.
+- If the scope of an entry is 'All users'. Then any registered user should be able to access this entry.
+- If the scope of an entry is 'Public'. Then any user or unauthorized visitor should be able to access this entry.
+
+*Story field*
+
+- There should be a field with several lines where I can write the body of my entry.
+- I should be able to use Markdown formatting language to format my content
+- Hitting 'enter' should _not_ save the entry, but should give me a new line instead.
