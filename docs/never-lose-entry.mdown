@@ -1,0 +1,9 @@
+# As a user, I never want to lose my entry
+
+When I create a new entry, a draft version of that entry should be created
+and continuously saved as draft during the time I write.
+
+## Acceptance tests
+
+- When I have written a few words in my entry and my computer dies, I want to find the entry there in the form when I restart the computer and log in to my remember-account.
+- When I accidentally close my browser window I want what was explained above to happen.
