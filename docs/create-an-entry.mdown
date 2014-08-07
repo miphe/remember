@@ -19,10 +19,10 @@ to my new entry.
 *Scope field*
 
 - There should be a way to select scope of this entry.
-- If the scope of an entry is 'Only me'. Then I should be the only one who can access this entry.
-- If the scope of an entry is 'My team'. Then only team members of that team should be able to access this entry.
-- If the scope of an entry is 'All users'. Then any registered user should be able to access this entry.
-- If the scope of an entry is 'Public'. Then any user or unauthorized visitor should be able to access this entry.
+- If the scope of an entry is `Only me`. Then I should be the only one who can access this entry.
+- If the scope of an entry is `My team`. Then only team members of that team should be able to access this entry.
+- If the scope of an entry is `All users`. Then any registered user should be able to access this entry.
+- If the scope of an entry is `Public`. Then any user or unauthorized visitor should be able to access this entry.
 
 *Story field*
 
