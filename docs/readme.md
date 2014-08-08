@@ -10,31 +10,33 @@ Feel free to PR to:
 
 Authentication actions
 ==
-User login (#3 by @shadyvb)
-User logout
-User registration
-User Update profile
+- [User login](https://github.com/x-team/remember/blob/master/docs/login.mdown)
+- User logout
+- User registration
+- User Update profile
+- [User reset password](https://github.com/x-team/remember/blob/master/docs/reset-password.mdown)
+- [Show username](https://github.com/x-team/remember/blob/master/docs/show-username.mdown)
 
 Note actions
 ==
-Write a note
-List notes
-View a note
-Filter notes
-Edit a note
-Delete a note
-Filter by favorites
-Filter by /five'd notes
-Search for a note
-Search for a tag
+- [Write a note](https://github.com/x-team/remember/blob/master/docs/create-an-entry.mdown)
+- [Never lose an entry](https://github.com/x-team/remember/blob/master/docs/never-lose-entry.mdown)
+- List notes
+- View a note
+- Filter notes
+- Edit a note
+- Delete a note
+- Filter by favorites
+- Filter by /five'd notes
+- [Search for a note](https://github.com/x-team/remember/blob/master/docs/search-entries.mdown)
 
 Sharing actions
 ==
-Share a note
-Favor a note
-/five a note
+- Share a note
+- Favor a note
+- /five a note
 
 Collaboration
 ==
-Comment on a note
-View global timeline of actions
+- Comment on a note
+- View global timeline of actions
