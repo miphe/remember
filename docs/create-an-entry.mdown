@@ -1,4 +1,4 @@
-# As a user, I want to create an entry
+# Create an entry
 
 Creating, saving and editing an entry should all happen without page refresh.
 
@@ -9,21 +9,6 @@ to my new entry.
 
 ### Entry form
 
-*Tag field*
-
-- There is a field for tagging up your entry in which I can write text.
-- When I start to type in the tag-field, suggestions of previously used tags should be presented for me to choose among. Using the up/down arrows should allow me to select which suggestion I want to choose.
-- When I have added a tag for my entry, I should be able to continue to add more tags. When I hit comma (,) that should be an indication that I'm writing a new tag (tag seperator). I should be able to enter an unlimited amount of tags.
-- When I write a tag that doesn't exist in the database, that tag should be automatically created when the entry is saved.
-
-*Scope field*
-
-- There should be a way to select scope of this entry.
-- If the scope of an entry is `Only me`. Then I should be the only one who can access this entry.
-- If the scope of an entry is `My team`. Then only team members of that team should be able to access this entry.
-- If the scope of an entry is `All users`. Then any registered user should be able to access this entry.
-- If the scope of an entry is `Public`. Then any user or unauthorized visitor should be able to access this entry.
-
 *Story field*
 
 - There should be a field with several lines where I can write the body of my entry.
@@ -32,12 +17,12 @@ to my new entry.
 
 ### Submitting entry
 
-- There should be a submit button saying 'Close Entry' below form.
-- Clicking the button should save the entry in database
-- When the save is being processed, I want to realize that by seeing an animated symbol suggesting that something is going on (loader).
-- When save is complete and successful, I want all fields to be cleared and a new fresh form to be shown to me.
-- When save is complete and successful, I want to see a message saying something like 'Save complete', so I know all is well.
-- If the save is not successful, I don't want to lose my entry, it should still be in the form.
-- If the save is not successful, I want to see a message explaining what happened and what I can do to successfully save the entry (validation and message handling).
-- If I become impatient and click the submit buttom several times quickly, then I don't want several entry versions to be saved, I want just one to be saved and I don't want the button to do anything during the entry is being processed.
-- During the time when the entry save is being processed, I want the submit button to look deactivated.
+- There is a submit button saying 'Close Entry' below form.
+- Clicking the button saves the entry in a database.
+- When the save is being processed, I can realize that by seeing an animated symbol suggesting that something is going on (loader).
+- When save is complete and successful, all fields are cleared and a new fresh form to be shown to me.
+- When save is complete and successful, a message shows saying something like 'Save complete', so I know all is well.
+- If the save is not successful, I don't lose my entry, it's still in the form.
+- If the save is not successful, I see a message explaining what happened and what I can do to successfully save the entry (validation and message handling).
+- If I become impatient and click the submit buttom several times quickly, then several entry versions are _not_ saved, just one is saved and the button doesn't do anything during the time when the entry is being processed.
+- During the time when the entry save is being processed, the submit button looks deactivated.
