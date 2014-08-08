@@ -1,6 +1,6 @@
-# As a user, I want to search entries
+# Search entries
 
-I want to be able to search for entries and have the results presented to me.
+Search for entries and have the results presented to me.
 
 ## Acceptance tests
 
@@ -8,19 +8,3 @@ I want to be able to search for entries and have the results presented to me.
 - When hitting `Enter` the search should start.
 - During search, an animated symbol should show to indicate that something is going on.
 - The search results should be presented without a page refresh.
-
-### Sorting
-
-_I should be able to sort my results as below._
-
-- By Relevance _(What "relevance" is will need to be discussed more deeply)_
-- By date _(Ascending/Descending)_
-
-### Filtering
-
-_I should be able to refine my search by filters shown below, and by combinations of these filters._
-
-- By date interval
-- By tag/s _(`has tag X`)_
-- By member
-- By member of team Y
