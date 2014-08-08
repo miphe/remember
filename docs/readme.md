@@ -10,31 +10,31 @@ Feel free to PR to:
 
 Authentication actions
 ==
-User login (#3 by @shadyvb)
-User logout
-User registration
-User Update profile
+- User login (#3 by @shadyvb)
+- User logout
+- User registration
+- User Update profile
 
 Note actions
 ==
-Write a note
-List notes
-View a note
-Filter notes
-Edit a note
-Delete a note
-Filter by favorites
-Filter by /five'd notes
-Search for a note
-Search for a tag
+- Write a note
+- List notes
+- View a note
+- Filter notes
+- Edit a note
+- Delete a note
+- Filter by favorites
+- Filter by /five'd notes
+- Search for a note
+- Search for a tag
 
 Sharing actions
 ==
-Share a note
-Favor a note
-/five a note
+- Share a note
+- Favor a note
+- /five a note
 
 Collaboration
 ==
-Comment on a note
-View global timeline of actions
+- Comment on a note
+- View global timeline of actions
