@@ -27,6 +27,9 @@ While logged in, visiting the main page of the app should show me a list of the 
 - I should be able to use autocomplete on either of the following fields
     + author
     + tag
+- I should be able to filter notes by my own preferences, ie:
+    + favored notes
+    + /five'd notes
 - i should be able to sort notes by
     + title
     + date
