@@ -23,11 +23,8 @@ Note actions
 - [Never lose an entry](https://github.com/x-team/remember/blob/master/docs/never-lose-entry.mdown)
 - List notes
 - View a note
-- Filter notes
 - Edit a note
 - Delete a note
-- Filter by favorites
-- Filter by /five'd notes
 - [Search for a note](https://github.com/x-team/remember/blob/master/docs/search-entries.mdown)
 
 Sharing actions
