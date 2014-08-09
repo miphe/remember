@@ -13,6 +13,8 @@ There is currently three layers ( and ways ) from which you can run the server, 
 - `npm start` or `nodemon app.js` Runs the app using `nodemon` node library, which is configured to restart the server once any ( executable JS ) file has been changed on disk. So you don't need to restart after changing app files, it does it automatically for you
 - `gulp` Runs the app, using `nodemon` internally ( just like above ), with the added value of watching for resources changes, like (S)CSS or (Coffee)Scripts, and compile them, and do any needed processing automatically
 
+Then you should be able to visit `http://localhost:3000` in your browser and be greeted with the app landing page.
+
 # Folder structure
 >>>
     - docs           | Acceptance Tests & Documents
@@ -25,3 +27,6 @@ There is currently three layers ( and ways ) from which you can run the server, 
     - src            | Front-end files, stylesheet are written in SCSS, 
                      | JS can be written in .js files or .coffee files
     - views          | Views folder, written in .jade files
+
+# Resource compiling
+Gulp is used to compile resources, so you should be able to use `gulp compile` or `gulp watch` to compile (S)CSS and (Coffee)Script
