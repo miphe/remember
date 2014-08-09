@@ -15,7 +15,8 @@
     "gulp-nodemon": "*",
     "gulp-jshint": "*",
     "gulp-sass": "*",
-    "gulp-coffee": "*"
+    "gulp-coffee": "*",
+    "gulp-add-src": "*"
   },
   "author": "joshwnj",
   "license": "MIT",

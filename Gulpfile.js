@@ -3,22 +3,28 @@ var gulp = require('gulp')
 	, jshint = require('gulp-jshint')
 	, sass = require('gulp-sass')
 	, coffee = require('gulp-coffee')
+	, addSrc = require('gulp-add-src')
 	, nodemonConfig = require('./nodemon.json')
 	, paths = {
 		styles: 'src/scss/*.scss',
-		scripts: ['src/js/*.js', 'src/coffee/*.coffee']
+		scripts: ['src/js/*.coffee', 'src/js/*.js']
 	}
 
 gulp.task('scripts', function() {
-	return gulp.src(paths.scripts)
-			.pipe(coffee())
+	return gulp.src(paths.scripts[0])
+				.pipe(coffee({bare: true}))
+					.on('error', function(err){
+						console.warn(err.message)
+					})
+			.pipe(addSrc(paths.scripts[1]))
+			.pipe(jshint())
 			.pipe(gulp.dest('public/js'));
 });
 
 gulp.task('styles', function() {
-	return gulp.src('./src/scss/*.scss')
+	return gulp.src('src/scss/*.scss')
 		.pipe(sass())
-		.pipe(gulp.dest('./public/css'));
+		.pipe(gulp.dest('public/css'));
 });
 
 gulp.task('compile', ['styles', 'scripts']);
