@@ -1,6 +1,6 @@
 # Login
 
-Being unauthorized, visiting this application I want to be presented a login form where I may enter my login details and hit a login button.
+ Being unauthorized, visiting this application I want to be presented a login form where I may enter my login details and hit a login button.
 
 ## Acceptance tests
 
