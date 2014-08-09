@@ -8,7 +8,7 @@ var express = require('express')
     , config = require('../config.json')
     , app = express();
 
-app.set('views', path.join(__dirname, '../ui/views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'jade');
 
 app.set('db', db);

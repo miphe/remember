@@ -1,0 +1,39 @@
+doctype html
+html
+    head
+        title Remember
+        link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+        link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans+Mono|Ubuntu:400,700')
+        link(rel='stylesheet', href='//getbootstrap.com/assets/css/docs.min.css')
+        link(rel='stylesheet', href='/css/main.css')
+        script(src='/js/main.js')
+    body
+        div.container
+            nav.navbar.navbar-inverse(role='navigation')
+                .container-fluid
+                    .navbar-header
+                        button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+                            span.sr-only Toggle Navigation
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        a(href='/').navbar-brand
+                            | Remember
+                            small  (beta)
+
+            block content
+
+        footer.bs-docs-footer(role='contentinfo')
+            .container
+                .row
+                    p
+                        | X-Labs product built by Superheroes of
+                        a(href='http://x-team.com')  X-Team
+                        br
+                        | Contribute to this project at our
+                        a(href='http://github.com/x-team/remember')  GitHub repo
+
+
+    script(src='//code.jquery.com/jquery.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+
