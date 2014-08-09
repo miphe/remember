@@ -1,0 +1,14 @@
+{
+	"script": "app.js",
+	"ext": "js json",
+	"ignore": [
+		".git",
+		".idea",
+		"node_modules",
+		"src/temp",
+		"public/css"
+	],
+	"env": {
+		"NODE_ENV": "development"
+	}
+}

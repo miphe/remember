@@ -5,11 +5,17 @@
   "description": "Journals for teams.",
   "main": "app.js",
   "scripts": {
+    "preinstall": "command -v nodemon >/dev/null 2>&1 || sudo npm i -g nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
   "devDependencies": {
-    "tape": "~2.13.4"
+    "tape": "~2.13.4",
+    "gulp": "*",
+    "gulp-nodemon": "*",
+    "gulp-jshint": "*",
+    "gulp-sass": "*",
+    "gulp-coffee": "*"
   },
   "author": "joshwnj",
   "license": "MIT",
