@@ -5,6 +5,8 @@
 ## Acceptance tests
 
 - When I go to any URL on this app's domain, then I should be redirected to a `/login` area if I'm not already logged in.
+- I see a field where I can login using 3 social-network login plugin: Facebook, Twitter, and Google+
+  - If I click one of the social-network login plugin, it will brings me directly to user profile page
 - I see a field where I can enter my username.
 - I see a field where I can enter my password.
   - When entering my password, the characters I type are obscured.
