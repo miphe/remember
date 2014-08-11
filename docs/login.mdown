@@ -17,3 +17,6 @@ Being unauthorized, visiting this application I want to be presented a login for
 - During the login process, I see an animated symbol indicating that something is going on (loader).
 - During the login process, the login form's submit button is disabled.
 - During the login process, the login form's submit button _looks_ disabled.
+- Once I am logged in I see a button in the UI labeled something like 'Log Out'.
+  - When I click this button, my session is destroyed and I am logged out of the application.
+  - Upon logging out, I am redirected to the '/login' page described above.
