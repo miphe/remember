@@ -20,4 +20,4 @@ _* => fields are deemed 'critical'._
 ### Danger Zone
 
 - There is a secluded area called the _'Danger Zone'_ where irreversable account actions are handled.
-- In the danger zone, I can push a button to delete my account. If I push this button I should be prombted by a confirmation prompt asking if I really want to delete my account. If I confirm, the account should be flagged (which is another story).
+- In the danger zone, I can push a button to delete my account. If I push this button I should be prombted by a confirmation prompt asking if I really want to delete my account. If I confirm, the account should be flagged (which is another story, [namely this one](delete-my-account.mdown)).

@@ -11,3 +11,7 @@ Search for entries and have the results presented to me.
 - Search results should contain both
   - entries with title/content matching the search keyword
   - entries tagged by the search keyword, or by a tag that starts with the search keyword
+
+## Related stories
+
+- [Search results](search-results.mdown)

@@ -13,3 +13,7 @@ When mentioning 'removing account', from here on I mean something more like _fre
   - I can not access my account in any way.
   - Entries authored by me are still accessible.
   - Wherever my username/name was linked to my account, that link now looks inactive and doesn't lead to my account.
+
+## Related stories
+
+- [Update account details](update-account-details.mdown)
