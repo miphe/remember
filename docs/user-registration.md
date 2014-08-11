@@ -1,5 +1,7 @@
-User Registration
-====
+# User Registration
+  User are able to create a new user account by either fill-up the information details manually, or by using social-plugin login that provided by 3 major social network: Facebook, Twitter and Google+
+
+## 
 
 - Navigate to the signup/user registration page
 - User need to login by either these 2 ways below:
