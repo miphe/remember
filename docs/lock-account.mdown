@@ -4,9 +4,9 @@ Under certain circumstances there is need for an account to be locked. It should
 
 ## Lock types
 
-1) Locked: Compromized security
-2) Locked: Malicious use
-3) Locked: By admin
+1) `Locked: Compromized security`
+2) `Locked: Malicious use`
+3) `Locked: By admin`
 
 ## Acceptance tests
 
