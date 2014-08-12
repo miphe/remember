@@ -1,5 +1,5 @@
 # User Registration
-  User are able to create a new user account by either fill-up the information details manually, or by using social-plugin login that provided by 3 major social network: Facebook, Twitter and Google+
+  User are able to create a new user account by either fill-up the information details manually, or by using social-plugin which for now using Twitter.
 
 ## Acceptance tests
 
@@ -24,14 +24,8 @@
       - Email is not valid.
       - Email is not available.
       - Both Password and Re-type password is not match.
-  - Login by either social-login button: Facebook, Twitter and Google+:
-    - If user click Facebook login button, he will redirected to Facebook page (or Facebook popup window page) to confirm with 
-    all the permission.
-    - Once that done, he will redirect directly to user profile page.
+  - Login by social-login button: Twitter:
     - If user click Twitter login button, he will redirected to Twitter page (or Twitter popup window page) to confirm with 
-    all the permission.
-    - Once that done, he will redirect directly to user profile page.
-    - If user click Google+ login button, he will redirected to Google+ page (or Google+ popup window page) to confirm with 
     all the permission.
     - Once that done, he will redirect directly to user profile page.
 - User expected to be redirected to user profile page.
