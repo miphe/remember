@@ -9,5 +9,5 @@ I can visit a page where an entry is shown.
   - I can see the author of the entry.
   - I can see the creation date/time of the entry.
   - I can see dates on which the entry was updated.
-- I can click a link/button to edit/[resume](continue-entry.mdown) the entry.
+- I can click a link/button to edit/[resume](continue-entry.md) the entry.
 - I can click a link/button to archive the entry.

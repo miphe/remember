@@ -10,22 +10,22 @@ Feel free to PR to:
 
 Authentication actions
 ==
-- [User login](https://github.com/x-team/remember/blob/master/docs/login.mdown)
+- [User login](https://github.com/x-team/remember/blob/master/docs/login.md)
 - User logout
 - User registration
 - User Update profile
-- [User reset password](https://github.com/x-team/remember/blob/master/docs/reset-password.mdown)
-- [Show username](https://github.com/x-team/remember/blob/master/docs/show-username.mdown)
+- [User reset password](https://github.com/x-team/remember/blob/master/docs/reset-password.md)
+- [Show username](https://github.com/x-team/remember/blob/master/docs/show-username.md)
 
 Note actions
 ==
-- [Write a note](https://github.com/x-team/remember/blob/master/docs/create-an-entry.mdown)
-- [Never lose an entry](https://github.com/x-team/remember/blob/master/docs/never-lose-entry.mdown)
+- [Write a note](https://github.com/x-team/remember/blob/master/docs/create-an-entry.md)
+- [Never lose an entry](https://github.com/x-team/remember/blob/master/docs/never-lose-entry.md)
 - List notes
 - View a note
 - Edit a note
 - Delete a note
-- [Search for a note](https://github.com/x-team/remember/blob/master/docs/search-entries.mdown)
+- [Search for a note](https://github.com/x-team/remember/blob/master/docs/search-entries.md)
 
 Collaboration
 ==

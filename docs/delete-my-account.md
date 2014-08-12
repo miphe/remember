@@ -16,4 +16,4 @@ When mentioning 'removing account', from here on I mean something more like _fre
 
 ## Related stories
 
-- [Update account details](update-account-details.mdown)
+- [Update account details](update-account-details.md)
