@@ -6,6 +6,7 @@ Creating, saving and editing an entry should all happen without page refresh.
 
 - There is a form always available above the fold where I can enter details
 to my new entry.
+- The field is automatically focused whenever i type 'n' while not in a text input
 
 ### Entry form
 
@@ -15,6 +16,7 @@ to my new entry.
 - Typing a hashtag should present me with an autocomplete widget of available tags, or let me write a new one
 - I should be able to use Markdown formatting language to format my content
 - Hitting 'enter' should _not_ save the entry, but should give me a new line instead.
+- Hitting 'shift+enter' should save the entry
 
 ### Submitting entry
 
@@ -27,3 +29,10 @@ to my new entry.
 - If the save is not successful, I see a message explaining what happened and what I can do to successfully save the entry (validation and message handling).
 - If I become impatient and click the submit buttom several times quickly, then several entry versions are _not_ saved, just one is saved and the button doesn't do anything during the time when the entry is being processed.
 - During the time when the entry save is being processed, the submit button looks deactivated.
+
+### Entry meta
+
+- The date and time when an entry was created is saved to the entry.
+  - The user who created the entry is saved.
+- The date and time when an entry was updated is saved to the entry.
+  - The user who made the change is saved.
