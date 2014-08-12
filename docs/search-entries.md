@@ -14,4 +14,4 @@ Search for entries and have the results presented to me.
 
 ## Related stories
 
-- [Search results](search-results.mdown)
+- [Search results](search-results.md)
