@@ -27,12 +27,6 @@ Note actions
 - Delete a note
 - [Search for a note](https://github.com/x-team/remember/blob/master/docs/search-entries.mdown)
 
-Sharing actions
-==
-- Share a note
-- Favor a note
-- /five a note
-
 Collaboration
 ==
 - Comment on a note
