@@ -1,10 +1,12 @@
 # Login
 
-Being unauthorized, visiting this application I want to be presented a login form where I may enter my login details and hit a login button.
+ Being unauthorized, visiting this application I want to be presented a login form where I may enter my login details and hit a login button.
 
 ## Acceptance tests
 
 - When I go to any URL on this app's domain, then I should be redirected to a `/login` area if I'm not already logged in.
+- I see a field where I can login using social-network login plugin which is Twitter, for now.
+  - If I click one of the social-network login plugin, it will brings me directly to user profile page
 - I see a field where I can enter my username.
 - I see a field where I can enter my password.
   - When entering my password, the characters I type are obscured.
