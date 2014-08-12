@@ -14,6 +14,7 @@ to my new entry.
 - There should be a field with several lines where I can write the body of my entry.
 - I should be able to use Markdown formatting language to format my content
 - Hitting 'enter' should _not_ save the entry, but should give me a new line instead.
+- Hitting 'shift+enter' should save the entry
 
 ### Submitting entry
 
