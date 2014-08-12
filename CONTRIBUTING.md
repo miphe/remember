@@ -1,5 +1,6 @@
 # Coding Standards
-?
+
+Check our generic Standards at https://github.com/x-team/standards
 
 # Getting Started
 
