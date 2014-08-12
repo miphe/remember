@@ -5,7 +5,7 @@
   "description": "Journals for teams.",
   "main": "app.js",
   "scripts": {
-    "preinstall": "sudo npm i -g nodemon & sudo npm i -g gulp",
+    "preinstall": "sudo npm i -g nodemon; sudo npm i -g gulp",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
@@ -15,8 +15,6 @@
     "gulp-nodemon": "*",
     "gulp-jshint": "*",
     "gulp-sass": "*",
-    "gulp-coffee": "*",
-    "gulp-add-src": "*"
   },
   "author": "joshwnj",
   "license": "MIT",

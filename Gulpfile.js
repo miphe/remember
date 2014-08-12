@@ -2,21 +2,14 @@ var gulp = require('gulp')
 	, nodemon = require('gulp-nodemon')
 	, jshint = require('gulp-jshint')
 	, sass = require('gulp-sass')
-	, coffee = require('gulp-coffee')
-	, addSrc = require('gulp-add-src')
 	, nodemonConfig = require('./nodemon.json')
 	, paths = {
 		styles: 'src/scss/*.scss',
-		scripts: ['src/js/*.coffee', 'src/js/*.js']
+		scripts: 'src/js/*.js'
 	}
 
 gulp.task('scripts', function() {
-	return gulp.src(paths.scripts[0])
-				.pipe(coffee({bare: true}))
-					.on('error', function(err){
-						console.warn(err.message)
-					})
-			.pipe(addSrc(paths.scripts[1]))
+	return gulp.src(paths.scripts)
 			.pipe(jshint())
 			.pipe(gulp.dest('public/js'));
 });
