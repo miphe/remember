@@ -4,7 +4,7 @@ Creating, saving and editing an entry should all happen without page refresh.
 
 ## Acceptance tests
 
-- There is a form always available above the fold where I can enter details
+- There is a form always available above the fold where I can enter content
 to my new entry.
 - The field is automatically focused whenever i type 'n' while not in a text input
 
