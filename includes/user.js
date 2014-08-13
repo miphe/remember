@@ -3,7 +3,6 @@
  */
 var user = function(req, res, next){
     res.locals.auth = false;
-    // @todo check if an
     if ( req.cookies.get('user_id') ) {
         db.get('users').findById(req.cookies.get('user_id'))
             .then(function(doc) {
