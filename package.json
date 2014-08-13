@@ -5,7 +5,7 @@
   "description": "Journals for teams.",
   "main": "app.js",
   "scripts": {
-    "preinstall": "sudo npm i -g nodemon; sudo npm i -g gulp",
+    "preinstall": "sudo npm i -g nodemon gulp",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js"
   },
