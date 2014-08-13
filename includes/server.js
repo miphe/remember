@@ -4,8 +4,8 @@ var express = require('express')
     , Cookies = require('cookies')
     , cookieParser = require('cookie-parser')
     , bodyParser = require('body-parser')
-    , db = require('monk')('localhost:27017/gaf')
     , config = require('../config.json')
+    , db = require('monk')(config.dbDSN)
     , app = express();
 
 app.set('views', path.join(__dirname, '../views'));
