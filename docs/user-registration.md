@@ -4,6 +4,11 @@
 ## Acceptance tests
 
 - Navigate to the signup/user registration page (#23)
+- Following fields exists on the user registration page. (#24)
+  - E-mail
+  - Password
+  - Confirm password
+  - Submit
 - User need to login by either these 2 ways below:
   - Filling up all the information manually:
     - User need to fill-in prefered username.

@@ -3,3 +3,17 @@ block content
     .jumbotron
         .container-fluid
             h1.text-center Register
+
+            div.row
+                div.col-md-3
+                div.col-md-6
+                    form(role='form', action='/register-new-user')
+                        div.form-group
+                            input.form-control#field-email(type='email', placeholder='Your e-mail', name='e-mail')
+                        div.form-group
+                            input.form-control#field-password(type='password', placeholder='Password', name='password')
+                        div.form-group
+                            input.form-control#field-confirm-password(type='password', placeholder='Confirm password', name='confirm-password')
+
+                        button.btn.btn-default(type='submit') Register
+                div.col-md-3
