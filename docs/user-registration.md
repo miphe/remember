@@ -4,6 +4,7 @@
 ## Acceptance tests
 
 - Navigate to the signup/user registration page (#23)
+- There is a way to get to the user registration page from the index page.
 - Following fields exists on the user registration page. (#24)
   - E-mail
   - Password
