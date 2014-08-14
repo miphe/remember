@@ -3,7 +3,7 @@
 
 ## Acceptance tests
 
-- Navigate to the signup/user registration page
+- Navigate to the signup/user registration page (#23)
 - User need to login by either these 2 ways below:
   - Filling up all the information manually:
     - User need to fill-in prefered username.
@@ -25,7 +25,7 @@
       - Email is not available.
       - Both Password and Re-type password is not match.
   - Login by social-login button: Twitter:
-    - If user click Twitter login button, he will redirected to Twitter page (or Twitter popup window page) to confirm with 
+    - If user click Twitter login button, he will redirected to Twitter page (or Twitter popup window page) to confirm with
     all the permission.
     - Once that done, he will redirect directly to user profile page.
 - User expected to be redirected to user profile page.
