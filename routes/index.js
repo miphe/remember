@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
  * Registration page
  */
 router.get('/register', function(req, res) {
-    res.render('register', {});
+    res.render('register', { title: 'Register an account' });
 });
 
 module.exports = router;
