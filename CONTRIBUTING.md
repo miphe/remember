@@ -1,12 +1,23 @@
 # Contributing
 
-## General Standards
+## Coding Standards
 
-Check our Standards at [github.com/x-team/standards](https://github.com/x-team/standards)
+This project follows the [X-Team Standards](https://github.com/x-team/standards)
 
 ## Getting Started
 
-To get started using this, you need to install dependencies by issuing `npm install` command in the root of the repo, then you should pick a way to start the server ( see next ).
+To get started contributing in this app, you should be able to setup in your local development enviroment.
+
+First step is check if all main dependencies are installed.
+
+- [Node.js](http://nodejs.org/)
+- [Bundler](http://bundler.io/bundle_install.html) (`gem install bundler`)
+
+Next step is install the package dependencies, in the app root folder run:
+
+- `npm install`
+
+If everything went well so far, check next step and pick a way to start the server.
 
 ## Running the server
 
