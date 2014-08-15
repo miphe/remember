@@ -8,4 +8,4 @@ var user = function() {
     }
 };
 
-module.exports.User = user;
+module.exports = user;
