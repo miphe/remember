@@ -2,6 +2,7 @@ extends layout
 block content
 	.jumbotron
 		.container-fluid.text-center
-				h1= error.status
-				h2= message
-				pre.text-left #{error.stack}
+				h1= error.status || 500
+				h2= message || error.message
+				if ( error.stack )
+					pre.text-left #{error.stack}
