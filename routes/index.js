@@ -5,14 +5,7 @@ var express = require('express')
  * Welcome page
  */
 router.get('/', function(req, res) {
-    res.render('index', {});
-});
-
-/**
- * Registration page
- */
-router.get('/register', function(req, res) {
-    res.render('register', { title: 'Register an account' });
+    res.render('index', { title: 'Welcome to Remember' });
 });
 
 module.exports = router;

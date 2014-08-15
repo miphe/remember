@@ -18,3 +18,26 @@ var user = function(req, res, next){
 };
 
 module.exports = user;
+
+/**
+ * Handle user registration
+ */
+var Register = function() {
+    this.save = function(data) {
+        console.log('Saving user..');
+        console.log(data);
+    };
+
+    this.init = function() {
+        console.log('Initiating registration..');
+        this.attachSubmitHandler();
+    };
+
+    this.attachSubmitHandler = function() {
+        $('input[type=submit]').on('click', function() {
+            console.log('Submitting..');
+        });
+    };
+};
+
+module.exports.Register = Register;
