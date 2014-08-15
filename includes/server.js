@@ -5,7 +5,7 @@ var express = require('express')
     , cookieParser = require('cookie-parser')
     , bodyParser = require('body-parser')
     , config = require('../config.json')
-    , db = require('monk')(config.dbDSN)
+    , db = require('./db')
     , app = express();
 
 app.set('views', path.join(__dirname, '../views'));
