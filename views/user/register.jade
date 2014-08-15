@@ -1,4 +1,4 @@
-extends layout
+extends ../layout
 block content
     .jumbotron
         .container-fluid
@@ -7,9 +7,9 @@ block content
             div.row
                 div.col-md-3
                 div.col-md-6
-                    form(role='form', action='/register-new-user')
+                    form(role='form', id='register', method='post', action='/user/register')
                         div.form-group
-                            input.form-control#field-email(type='email', placeholder='Your e-mail', name='e-mail')
+                            input.form-control#field-email(type='email', placeholder='Your email', name='email')
                         div.form-group
                             input.form-control#field-password(type='password', placeholder='Password', name='password')
                         div.form-group
@@ -17,3 +17,6 @@ block content
 
                         button.btn.btn-default(type='submit') Register
                 div.col-md-3
+block head
+    script(src="/js/pwstrength-bootstrap-1.2.0.min.js")
+    script(src="/js/user.js")
