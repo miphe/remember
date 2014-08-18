@@ -13,7 +13,7 @@ _When writing an entry with Markdown, I can write a code block as shown below._
     end
     ```
 
-_When writing a code clock, I can choose which code language is highlighted, as shown below._
+_When writing a code block, I can choose which code language is highlighted, as shown below._
 
     ```ruby
     def meth(ary)
