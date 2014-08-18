@@ -1,6 +1,6 @@
 # Link to entry
 
-Linking to an entry through regular mardown hyperlinks.
+Linking to an entry through regular markdown hyperlinks.
 
 ## Acceptance tests
 
