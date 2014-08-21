@@ -18,4 +18,4 @@ A page where you can see a glimpse of information about details of your self, li
 
 ## Wireframe
 ![Wireframe of User profile page]
-(http://s30.postimg.org/k12xbpke9/user_profile_page.png)
+(http://s8.postimg.org/3ynaz2a3p/user_profile_page.png)
