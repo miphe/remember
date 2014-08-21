@@ -39,4 +39,4 @@ to my new entry.
 
 ### Wireframe
 ![Wireframe of Create new entry page]
-(http://s22.postimg.org/kkxsivf8h/create_new_entry.png)
+(http://s9.postimg.org/wv0ui1mrj/create_new_entry.png)
