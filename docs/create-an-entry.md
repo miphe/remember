@@ -36,3 +36,7 @@ to my new entry.
   - The user who created the entry is saved.
 - The date and time when an entry was updated is saved to the entry.
   - The user who made the change is saved.
+
+### Wireframe
+![Wireframe of Create new entry page]
+(http://s22.postimg.org/kkxsivf8h/create_new_entry.png)
