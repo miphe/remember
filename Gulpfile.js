@@ -11,13 +11,13 @@ var gulp = require('gulp')
 gulp.task('scripts', function() {
     return gulp.src(paths.scripts)
         .pipe(jshint())
-        .pipe(gulp.dest('public/js'));
+        .pipe(gulp.dest('client/js'));
 });
 
 gulp.task('styles', function() {
     return gulp.src(paths.styles)
         .pipe(sass())
-        .pipe(gulp.dest('public/css'));
+        .pipe(gulp.dest('client/css'));
 });
 
 gulp.task('compile', ['styles', 'scripts']);
