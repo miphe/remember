@@ -12,10 +12,6 @@
   - Submit
 - User need to login by either these 2 ways below:
   - Filling up all the information manually:
-    - User need to fill-in prefered username.
-    - System will check whether username is still available (all done in ajax-way):
-      - If username is NOT available, warning message appear to show that user need to provide another username.
-      - If username is available, notification message appear to show that user name is available.
     - User need to fill-in email address.
     - System will check whether email address is still available (all done in ajax-way):
       - If email address is NOT available, warning message appear to show that user need to provide another email address.
@@ -26,7 +22,6 @@
     - User need to fill-in the same password one more time.
     - User need to click 'Sign-up' button once all done.
     - The warning message will appear after user click 'Sign-up' button with these scenarios:
-      - Username is not available.
       - Email is not valid.
       - Email is not available.
       - Both Password and Re-type password is not match.
