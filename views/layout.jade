@@ -22,7 +22,12 @@ html
                         a(href='/').navbar-brand
                             | Remember
                             small  (beta)
-
+                    .navbar-collapse.collapse
+                        ul.nav.navbar-nav.navbar-right
+                            if user
+                                li: a(href='/user/logout') Logout
+                            else
+                                li: a(href='/user/login') Login
             block content
 
         footer.bs-docs-footer(role='contentinfo')

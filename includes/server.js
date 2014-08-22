@@ -5,6 +5,8 @@ var express = require('express')
     , cookieParser = require('cookie-parser')
     , bodyParser = require('body-parser')
     , config = require('../config.json')
+    , session = require('express-session')
+    , MongoStore = require('connect-mongo')(session)
     , db = require('./db')
     , app = express();
 
@@ -18,6 +20,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(Cookies.express());
+app.use(cookieParser())
+app.use(session({
+    store: new MongoStore({
+        url: config.session.store
+    }),
+    secret: config.session.secret
+}));
 app.use(express.static(path.join(__dirname, '../public')));
 
 /**
@@ -26,6 +35,24 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(function(req, res, next){
     console.log('%s %s', req.method, req.url);
     next();
+});
+
+/**
+ * Autologin user if found in session
+ */
+app.use(function(req, res, next){
+    res.locals.user = null;
+    if ( req.session.userId ) {
+        app.get('db').get('users').findOne({ _id: req.session.userId })
+            .then(function(doc){
+                res.locals.user = doc;
+                next();
+            }, function(){
+                next();
+            });
+    } else {
+        next();
+    }
 });
 
 /**

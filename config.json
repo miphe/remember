@@ -1,3 +1,7 @@
 {
-    "dbDSN": "localhost:27017/remember"
+    "dbDSN": "localhost:27017/remember",
+    "session": {
+               "secret": "x-team rocks big time!",
+               "store": "mongodb://localhost:27017/remember-sessions"
+    }
 }

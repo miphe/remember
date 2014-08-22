@@ -2,7 +2,8 @@ extends ../layout
 block content
     .jumbotron
         .container-fluid
-            h1.text-center Profile
+            h1.text-center Profile of
+                small= user.email
             p Edit your profile here
 block head
     script(src="/js/pwstrength-bootstrap-1.2.0.min.js")
