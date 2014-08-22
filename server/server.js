@@ -8,9 +8,6 @@ var express = require('express')
     , db = require('monk')(config.dbDSN)
     , app = express();
 
-app.set('views', path.join(__dirname, '../views'));
-app.set('view engine', 'jade');
-
 app.set('db', db);
 app.set('config', config);
 
@@ -31,15 +28,9 @@ app.use(function(req, res, next){
 /**
  * Routes
  */
-app.use('/', require('../routes/index'));
-app.use('/user', require('../routes/user'));
-app.use('/note', require('../routes/note'));
-
-/**
- * Auto login users via cookies, expose user object from DB, and all shared user
- * functions
- */
-app.use(require('./user'));
+app.use('/', require('./routes/index'));
+app.use('/user', require('./routes/user'));
+app.use('/note', require('./routes/note'));
 
 // Error handling
 app.use(function (req, res, next) {

@@ -1,18 +1,10 @@
 var gulp = require('gulp')
     , nodemon = require('gulp-nodemon')
-    , jshint = require('gulp-jshint')
     , sass = require('gulp-sass')
     , nodemonConfig = require('./nodemon.json')
     , paths = {
-        styles: 'src/scss/**/*.scss',
-        scripts: 'src/js/**/*.js'
+        styles: 'client/scss/**/*.scss'
     }
-
-gulp.task('scripts', function() {
-    return gulp.src(paths.scripts)
-        .pipe(jshint())
-        .pipe(gulp.dest('client/js'));
-});
 
 gulp.task('styles', function() {
     return gulp.src(paths.styles)
@@ -20,12 +12,11 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('client/css'));
 });
 
-gulp.task('compile', ['styles', 'scripts']);
+gulp.task('compile', ['styles']);
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
     gulp.watch(paths.styles, ['styles']);
-    gulp.watch(paths.scripts, ['scripts']);
 });
 
 gulp.task('nodemon', function () {
