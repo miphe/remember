@@ -1,12 +1,12 @@
-var express = require('express')
-    , path = require('path')
-    , logger = require('morgan')
-    , Cookies = require('cookies')
-    , cookieParser = require('cookie-parser')
-    , bodyParser = require('body-parser')
-    , config = require('../config.json')
-    , db = require('monk')(config.dbDSN)
-    , app = express();
+var express = require('express'),
+    path = require('path'),
+    logger = require('morgan'),
+    Cookies = require('cookies'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    config = require('../config.json'),
+    db = require('monk')(config.dbDSN),
+    app = express();
 
 app.set('db', db);
 app.set('config', config);
@@ -26,11 +26,11 @@ app.use(function(req, res, next){
 });
 
 /**
- * Routes
+ * AngularJS Starting point
  */
-app.use('/', require('./routes/index'));
-app.use('/user', require('./routes/user'));
-app.use('/note', require('./routes/note'));
+app.get('*', function(req, res) {
+    res.sendfile('./client/index.html');
+});
 
 // Error handling
 app.use(function (req, res, next) {
