@@ -10,6 +10,7 @@
     "start": "nodemon app.js"
   },
   "devDependencies": {
+    "angular": "^1.2.21",
     "gulp": "~3.8.7",
     "gulp-autoprefixer": "0.0.9",
     "gulp-jshint": "^1.8.4",
@@ -30,7 +31,7 @@
   "author": "joshwnj",
   "license": "MIT",
   "dependencies": {
-    "angularjs": "0.0.1",
+    "angular-route": "^1.2.17-build.163.1",
     "body-parser": "~1.0.0",
     "browserify": "^5.10.1",
     "cookie-parser": "~1.0.1",
