@@ -1,6 +1,6 @@
 {
   "name": "remember",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Journals for teams.",
   "author": "joshwnj",
@@ -10,7 +10,7 @@
   ],
   "main": "app.js",
   "scripts": {
-    "preinstall": "sudo npm i -g nodemon gulp; bundle install",
+    "preinstall": "npm i -g nodemon gulp;",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
