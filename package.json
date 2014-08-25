@@ -3,11 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "description": "Journals for teams.",
+  "author": "joshwnj",
+  "license": "MIT",
+  "contributors": [
+    "shadyvb"
+  ],
   "main": "app.js",
   "scripts": {
     "preinstall": "sudo npm i -g nodemon gulp; bundle install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
+  },
+  "engines": {
+      "node": "0.10.x"
   },
   "devDependencies": {
     "gulp": "~3.8.7",
@@ -27,8 +35,6 @@
     "tape": "~2.13.4",
     "vinyl-source-stream": "^0.1.1"
   },
-  "author": "joshwnj",
-  "license": "MIT",
   "dependencies": {
     "angular": "^1.2.21",
     "angular-route": "^1.2.17-build.163.1",
