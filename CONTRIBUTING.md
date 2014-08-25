@@ -26,6 +26,7 @@ Check if main dependencies are installed:
 Install [package dependencies](https://github.com/x-team/remember/blob/master/package.json) in the app [root folder](https://github.com/x-team/remember), run:
 
 - `npm install`
+- `bundle install`
 
 Check next step and pick a way to start the server.
 
