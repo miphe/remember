@@ -1,0 +1,20 @@
+{
+  "name": "remember",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Journals for teams.",
+  "author": "joshwnj",
+  "license": "MIT",
+  "contributors": [
+    "shadyvb"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "overrides": {}
+}
