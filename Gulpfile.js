@@ -1,35 +1,17 @@
-var gulp = require('gulp')
-    , nodemon = require('gulp-nodemon')
-    , jshint = require('gulp-jshint')
-    , sass = require('gulp-sass')
-    , nodemonConfig = require('./nodemon.json')
-    , paths = {
-        styles: 'src/scss/**/*.scss',
-        scripts: 'src/js/**/*.js'
-    }
+var gulp = require('gulp'),
+    tasks = [
+        'browserify',
+        'sass',
+        'bower',
+        'watch',
+        'lint',
+        'nodemon'
+    ];
 
-gulp.task('scripts', function() {
-    return gulp.src(paths.scripts)
-        .pipe(jshint())
-        .pipe(gulp.dest('public/js'));
+// Dynamically load defined tasks from their respective files
+tasks.forEach(function(name) {
+    gulp.task(name, require('./gulp/tasks/' + name));
 });
 
-gulp.task('styles', function() {
-    return gulp.src(paths.styles)
-        .pipe(sass())
-        .pipe(gulp.dest('public/css'));
-});
-
-gulp.task('compile', ['styles', 'scripts']);
-
-// Rerun the task when a file changes
-gulp.task('watch', function() {
-    gulp.watch(paths.styles, ['styles']);
-    gulp.watch(paths.scripts, ['scripts']);
-});
-
-gulp.task('nodemon', function () {
-    nodemon(nodemonConfig);
-});
-
-gulp.task('default', ['compile', 'watch', 'nodemon']);
+gulp.task('build', ['browserify', 'sass', 'lint', 'bower']);
+gulp.task('default', ['build', 'watch', 'nodemon']);
