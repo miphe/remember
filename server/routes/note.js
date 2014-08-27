@@ -20,10 +20,8 @@ router.post('/addnote', function(req, res) {
       res.send("There was a problem adding the information to the database.");
     }
     else {
-      // If it worked, set the header so the address bar doesn't still say /note/notelist
-      res.location('/note/notelist');
-      // And forward to success page.
-      res.redirect("/note/notelist");
+      // If it worked, return something to say...
+      res.send("An entry/note has succesfully added.");
     }
   });
 });
