@@ -48,7 +48,6 @@ router.get('/indexing', function(req, res) {
         res.json(resp);
       }
     });
-    
   });
 });
 

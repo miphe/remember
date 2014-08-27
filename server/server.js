@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
-  console.log(req);
+  // console.log(req);
   req.db = db;
   next();
 });
