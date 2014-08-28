@@ -37,4 +37,13 @@ router.get('/notelist', function(req, res) {
 	});
 });
 
+/**
+ *
+ */
+router.get('/testing', function(req, res) {
+  // var datex = new Date.now();
+  // console.log(datex);
+  res.send('Testing index...');
+});
+
 module.exports = router;
