@@ -5,15 +5,10 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     config = require('../config.json'),
-    // db = require('monk')(config.dbDSN),
+    mongo = require('mongodb'),
+    db = require('monk')(config.dbDSN),
     app = express();
 
-// Adding database connection to MongoDB.
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/rememberdb');
-
-// app.set('db', db);
 app.set('config', config);
 
 app.use(logger('dev'));
@@ -24,7 +19,6 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
-  // console.log(req);
   req.db = db;
   next();
 });
