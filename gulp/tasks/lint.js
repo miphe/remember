@@ -4,7 +4,13 @@ var gulp = require('gulp'),
 
 // JSHint task
 module.exports = function() {
-    gulp.src(['client/js/**/*.js', 'server/**/*.js', '!client/js/app.bundle.js', '!client/vendors/**/*.js'])
+    gulp.src([
+    	'client/js/**/*.js', 
+    	'server/**/*.js', 
+    	'!client/js/app.bundle.js', 
+    	'!client/vendors/**/*.js',
+    	'client/bootstrap/assets/javascripts/*.js'
+    	])
         // Pass in our jshint rules
         .pipe(jshint('.jshintrc'))
         // Set our jshint reporter - using jshint-stylish

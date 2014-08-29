@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     handleErrors = require('../util/handleErrors');
 
 module.exports = function () {
-  return gulp.src('client/scss/*.scss')
+  return gulp.src('client/bootstrap/assets/stylesheets/*.scss')
     .pipe(sass({
       compass: true,
       bundleExec: true,
