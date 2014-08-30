@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">"Remember" - Taking a note it never been easier, just a blink way.</a>
+          <a class="navbar-brand" href="#">"Remember" - Taking a note it never been easier, just a blink away.</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -33,13 +33,18 @@
 
     <div class="container">
 
-      <div class="starter-template">
-        <!-- <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p> -->
+      <div class="starter-template" ng-controller="AutoCompleteSearch as autocmplt">
+        <div class="search-info">You search for: <em>{{keyword}}</em></div>
         <form name="search-form" action="#" method="get">
-            <input type="text" class="form-control" placeholder="type a keyword..." />
+            <input type="text" class="form-control" ng-model="keyword" ng-change="change()" placeholder="type a keyword..." />
             <button class="btn btn-default">Search</button>
         </form>
+        <ul>
+        <li class="search-result" ng-repeat="sresult in autocmplt.result">
+          <div>{{sresult._source.note}}</div>
+        </li>
+      </ul>
+
       </div>
 
     </div><!-- /.container -->
