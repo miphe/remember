@@ -8,6 +8,7 @@ var client = new elasticsearch.Client({
   log: 'trace'
 });
 
+
 /**
  * Welcome page.
  */
@@ -56,7 +57,8 @@ router.get('/indexing', function(req, res) {
  * Ajax path for search result from elasticsearch.
  */
 router.post('/engage', function(req, res) {
-  var keyword = req.body.search;
+  var keyword = req.body.keyword;
+  console.log('keyword: ' + keyword);
   client.search({
     index:'note',
     type:'entry3',
