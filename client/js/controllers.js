@@ -1,22 +1,21 @@
 /* globals angular */
 'use strict';
 
-
-var ButtonsCtrl = function ($scope) {
-  $scope.singleModel = 1;
-  $scope.radioModel = 'Middle';
-  $scope.checkModel = {
-    left: false,
-    middle: true,
-    right: false
-  };
-};
-
 /* Controllers */
 angular.module('myApp.controllers', [])
-    .controller('MyCtrl1', ['$scope', function($scope) {
+  .controller('AutoCompleteSearch', ['$scope', '$http', function($scope, $http) {
+    var search = this;
+    search.result = [];
 
-    }])
-    .controller('ButtonsCtrl', ['$scope', function($scope) {
-      
-    }]);
+    $scope.change = function() {
+      search.keyword = $scope.keyword;
+
+      $http.post('/search/engage', { keyword : search.keyword })
+        .success(function(data) {
+          if (typeof data.hits !== 'undefined') {
+            search.result = data.hits.hits;
+          }
+        });
+    };    
+  }]);
+
