@@ -9,12 +9,20 @@
     <link rel="stylesheet" href="css/main.css"/>
     <script src="js/app.bundle.js"></script>
 </head>
-<body >
-    <ul class="menu">
-        <li><a href="#/view1">view1</a></li>
-        <li><a href="#/view2">view2</a></li>
-    </ul>
+<body ng-controller="ApplicationController">
+    <div ng-if="isLogged()">
+        You're logged in. <a href="#/user/logout">logout?</a>
+    </div>
+
+    <form ng-if="!isLogged()" name="loginForm" method="post" ng-controller="LoginController" ng-submit="login(credentials)" novalidate>
+        <label for="username">Username:</label>
+        <input type="text" id="username" ng-model="credentials.username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" ng-model="credentials.password">
+      <button type="submit">Login</button>
+    </form>
 
     <div class="main" ng-view></div>
+
 </body>
 </html>
