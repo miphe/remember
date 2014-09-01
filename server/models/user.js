@@ -1,101 +1,96 @@
-var crypto = require('crypto');
+var crypto = require('crypto'),
+    db = require('../server').get('db');
 
 /**
  * User model
  */
-var User = function () {
-    var self = this,
-        app = require('../server'),
-        db = app.get('db');
+var User = {};
 
-    /**
-     * Register a user using email/password combination
-     * @uses User.exists
-     * @param email
-     * @param password
-     * @returns {Promise}
-     */
-    self.register = function (email, password) {
-        var promise = self.available(email)
-            // If the email does not exist, process to inserting the user to DB
-            .then(function () {
-                return db.get('users')
-                    .insert({
-                        email:    email,
-                        password: password
-                    })
-                    .then(self.prepareDoc);
-            }, function () {
-                return new Error('User exists already', 'user-exists');
-            });
-        return promise;
-    };
-
-    /**
-     * Check login credentials
-     * @param email
-     * @param password
-     * @returns {Promise}
-     */
-    self.login = function (email, password) {
-        var promise = db.get('users')
-            .findOne({email: email})
-            .then(function (doc) {
-                // Check password
-                if ( doc.password === password ) {
-                    return self.prepareDoc(doc); // Return the user object, plus token
-                } else {
-                    promise.reject( new Error('Invalid password', 'invalid-password') );
-                }
-            }, function () {
-                promise.reject( new Error('Invalid email, not registered', 'email-not-found') );
-            });
-        return promise;
-    };
-
-    /**
-     * Check if a an email is available, ie: not registered
-     * @param email
-     * @returns {Promise|*}
-     */
-    self.available = function (email) {
-        var promise = db.get('users').find({email: email})
-            .then(function (docs) {
-                if ( docs.length ) {
-                    promise.reject( new Error('Email taken', 'email-taken') );
-                } else {
-                    promise.resolve();
-                }
-            });
-        return promise;
-    };
-
-    /**
-     * Creates a new access token
-     * @param user
-     * @returns {*}
-     */
-    self.createToken = function (user) {
-        var token = crypto.createHash('sha1').update(crypto.randomBytes(20)).digest('hex');
-        return db.get('tokens').insert({ userId: user._id, token: token });
-    };
-
-    /**
-     * Prepare the user document to be transferred to front-end
-     * Removes the password, and return an object with the user document and
-     * generated token
-     *
-     * @param user
-     */
-    self.prepareDoc = function (user) {
-        return self.createToken(user.email)
-            .then(function (doc) {
-                delete user.password;
-                return {user: user, token: doc.token};
-            });
-    };
-
-    return self;
+/**
+ * Register a user using email/password combination
+ * @uses User.exists
+ * @param email
+ * @param password
+ * @returns {Promise}
+ */
+User.register = function (email, password) {
+    var promise = User.available(email)
+        // If the email does not exist, process to inserting the user to DB
+        .then(function () {
+            return db.get('users')
+                .insert({
+                    email:    email,
+                    password: password
+                })
+                .then(User.prepareDoc);
+        }, function () {
+            return new Error('User exists already', 'user-exists');
+        });
+    return promise;
 };
 
-module.exports = User();
+/**
+ * Check login credentials
+ * @param email
+ * @param password
+ * @returns {Promise}
+ */
+User.login = function (email, password) {
+    var promise = db.get('users')
+        .findOne({email: email})
+        .then(function (doc) {
+            // Check password
+            if ( doc.password === password ) {
+                return User.prepareDoc(doc); // Return the user object, plus token
+            } else {
+                promise.reject( new Error('Invalid password', 'invalid-password') );
+            }
+        }, function () {
+            promise.reject( new Error('Invalid email, not registered', 'email-not-found') );
+        });
+    return promise;
+};
+
+/**
+ * Check if a an email is available, ie: not registered
+ * @param email
+ * @returns {Promise|*}
+ */
+User.available = function (email) {
+    var promise = db.get('users').find({email: email})
+        .then(function (docs) {
+            if ( docs.length ) {
+                promise.reject( new Error('Email taken', 'email-taken') );
+            } else {
+                promise.resolve();
+            }
+        });
+    return promise;
+};
+
+/**
+ * Creates a new access token
+ * @param user
+ * @returns {*}
+ */
+User.createToken = function (user) {
+    var token = crypto.createHash('sha1').update(crypto.randomBytes(20)).digest('hex');
+    return db.get('tokens').insert({ userId: user._id, token: token });
+};
+
+/**
+ * Prepare the user document to be transferred to front-end
+ * Removes the password, and return an object with the user document and
+ * generated token
+ *
+ * @param user
+ */
+User.prepareDoc = function (user) {
+    return User.createToken(user.email)
+        .then(function (doc) {
+            delete user.password;
+            return {user: user, token: doc.token};
+        });
+};
+
+module.exports = User;

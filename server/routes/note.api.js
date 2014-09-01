@@ -1,13 +1,10 @@
-var note = function () {
-    var self = this;
+var api = {};
 
-    self.GET = function(req, res, next) {
-        res.json({
-            success: false,
-            data: 'Invalid endpoint/method combination'
-        });
-    };
-
+api.GET = function(req, res, next) {
+    res.json({
+        success: false,
+        data: 'Invalid endpoint/method combination'
+    });
 };
 
-module.exports = note();
+module.exports = api;
