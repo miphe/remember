@@ -14,16 +14,21 @@ angular.module('Authentication', [])
 
         self.login = function (credentials) {
             return $http
-                .post('/user/login', credentials)
+                .post('/api/user', credentials)
                 .then(function (res) {
-                    $window.sessionStorage.token = res.token;
-                    $window.sessionStorage.user = res.user;
-                    return res.user;
+                    console.log(res)
+                    $window.sessionStorage.token = res.data.data.token;
+                    $window.sessionStorage.email = res.data.data.email;
+                    return res.data.data.user;
+                }, function(res){
+                    console && console.log(res.data.stack);
+                    alert(res.data.error);
                 });
         };
 
         self.logout = function () {
-            $window.sessionStorage.token = null;
+            $window.sessionStorage.token = '';
+            $window.sessionStorage.email = '';
         };
 
         self.isAuthenticated = function () {
@@ -39,8 +44,8 @@ angular.module('Authentication', [])
      */
     .controller('LoginController', ['$scope', '$rootScope', 'AuthService', 'AUTH_EVENTS', function ($scope, $rootScope, AuthService, AUTH_EVENTS) {
         $scope.credentials = {
-            username: '',
-            password: ''
+            email: '',
+            pass: ''
         };
         $scope.login = function (credentials) {
             AuthService.login(credentials).then(function (user) {
@@ -49,6 +54,11 @@ angular.module('Authentication', [])
             }, function () {
                 $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
             });
+        };
+        $scope.logout = function() {
+            AuthService.logout();
+            $scope.setCurrentUser(null);
+            $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
         };
     }])
 

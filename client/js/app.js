@@ -6,9 +6,13 @@ var angular = require('angular'),
 require( './modules/AuthService' );
 require( './controllers/ApplicationController' );
 
+require( './directives/app-version' );
+//require( './directives/dom-event' );
+
 // Declare app level module which depends on filters, and services
 angular.module('myApp', [
     'ngRoute',
     'Authentication',
-    'myApp.controllers'
+    'myApp.controllers',
+    'myApp.directives'
 ]);

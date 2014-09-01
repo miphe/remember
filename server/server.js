@@ -26,6 +26,11 @@ app.use(function(req, res, next){
 });
 
 /**
+ * API Handler
+ */
+app.use('/api', require('./api'));
+
+/**
  * AngularJS Starting point
  */
 app.get('*', function(req, res) {
@@ -42,15 +47,17 @@ if ( app.get('env') === 'development' ) {
     app.use(function (err, req, res, next) {
         'use strict';
         res.status(err.status || 500);
-        res.render('error', {
+        res.json({
+            success: false,
             message: err.message,
-            error:   err
+            error:   err.stack
         });
     });
 } else {
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
-        res.render('error', {
+        res.json({
+            success: false,
             message: err.message,
             error:   {}
         });
