@@ -5,15 +5,15 @@ var gulp = require('gulp'),
     handleErrors = require('../util/handleErrors');
 
 module.exports = function () {
-  return gulp.src('client/scss/**/*.scss')
+  return gulp.src('client/scss/*.scss')
     .pipe(sass({
       compass: true,
       bundleExec: true,
       sourcemapPath: '../sass'
     }))
+    .on('error', handleErrors)
     .pipe(gulp.dest('client/css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
-    .on('error', handleErrors)
-    .pipe(gulp.dest('client/css'));
+    .pipe(gulp.dest('client/css'))
 };
