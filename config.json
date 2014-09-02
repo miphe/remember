@@ -1,3 +1,9 @@
 {
-    "dbDSN": "localhost:27017/rememberdb"
+    "dbDSN": "localhost:27017/remember",
+    "es":    {
+        "connection": {
+            "host": "localhost:9200",
+            "log":  "trace"
+        }
+    }
 }

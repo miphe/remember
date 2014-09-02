@@ -3,18 +3,17 @@
 var angular = require('angular'),
     ngRoute = require('angular-route');
 
-require('./controllers');
-require('./directives');
-require('./filters');
-require('./services');
+require( './modules/AuthService' );
+
+require( './controllers/ApplicationController' );
+require( './controllers/AutoCompleteSearch' );
+
+require( './directives/app-version' );
 
 // Declare app level module which depends on filters, and services
 angular.module('myApp', [
     'ngRoute',
-    'myApp.filters',
-    'myApp.services',
-    'myApp.directives',
+    'Authentication',
     'myApp.controllers',
-    'ui.bootstrap'
+    'myApp.directives'
 ]);
-
