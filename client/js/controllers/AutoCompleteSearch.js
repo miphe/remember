@@ -3,19 +3,20 @@
 
 /* Controllers */
 angular.module('myApp.controllers')
-  .controller('AutoCompleteSearch', ['$scope', '$http', function($scope, $http) {
-    var search = this;
-    search.result = [];
+    .controller('AutoCompleteSearch', ['$scope', '$http', function($scope, $http) {
+        var search = this;
+        search.result = [];
 
-    $scope.change = function() {
-      search.keyword = $scope.keyword;
+        $scope.change = function() {
+            search.keyword = $scope.keyword;
 
-      $http.get('/api/search', { keyword : search.keyword })
-        .success(function(data) {
-          if (typeof data.hits !== 'undefined') {
-            search.result = data.hits.hits;
-          }
-        });
-    };
-  }]);
+            $http.get('/api/search?q=' + search.keyword)
+                .then(function(data) {
+                    if (typeof data.hits !== 'undefined') {
+                        console.log(data.hits.hits)
+                        search.result = data.hits.hits;
+                    }
+                });
+        };
+    }]);
 
