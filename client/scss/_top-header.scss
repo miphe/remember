@@ -13,6 +13,10 @@ $top-header-title-color: darken($top-header-theme-color, 35);
         height: $top-header-height;
     }
 
+    .logged-in-true {
+        line-height: 36px;
+    }
+
     .user-global-module {
         float: right;
         padding: 12px;

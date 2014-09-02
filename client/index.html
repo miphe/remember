@@ -33,7 +33,7 @@
 
         <div class="app-title-area"><h1>Remember<span> - Taking notes has never been easier.</span></h1></div>
 
-        <div class="user-global-module login-controller" ng-controller="LoginController">
+        <div class="user-global-module login-controller logged-in-{{isLogged()}}" ng-controller="LoginController">
 	  	    <div ng-if="isLogged()">
 	  		   You're logged in. <a href="#" ng-click="logout()">logout?</a>
 	  	    </div>
