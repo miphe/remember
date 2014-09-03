@@ -9,14 +9,14 @@ var api = {},
  * @constructor
  */
 api.GET = function(req, res) {
-    if ( ! req.param('q') ) {
+    if ( ! req.param('keyword') ) {
         var err = new TypeError('Invalid keyword passed','invalid-query');
         res.json({
             message: err.message,
             stack: err.stack
         }, 500);
     }
-    es.search({q: req.param('q')})
+    es.search({keyword: req.param('keyword')})
         .then(function(docs){
             res.json({
                 data: docs
