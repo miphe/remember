@@ -1,3 +1,4 @@
 .sass-cache
 Gemfile.lock
 client/css/*.map
+client/js/app.bundle.js
