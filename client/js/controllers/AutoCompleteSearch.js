@@ -15,10 +15,9 @@ angular.module('myApp.controllers')
             }
 
             $http.get('/api/search?keyword=' + search.keyword)
-                .then(function (data) {
-                    if ( typeof data.hits !== 'undefined' ) {
-                        console.log(data.hits.hits)
-                        search.result = data.hits.hits;
+                .then(function (res) {
+                    if ( typeof res.data.hits !== 'undefined' ) {
+                        search.result = res.data.hits.hits;
                     }
                 });
         };
