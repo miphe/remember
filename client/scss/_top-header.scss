@@ -1,0 +1,54 @@
+$top-header-theme-color: #fafafa;
+$top-header-title-color: darken($top-header-theme-color, 35);
+
+.top-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $top-header-theme-color;
+    border-bottom: 1px solid darken($top-header-theme-color, 8);
+
+    @media #{$tablet-plus} {
+        height: $top-header-height;
+    }
+
+    .logged-in-true {
+        line-height: 36px;
+    }
+
+    .user-global-module {
+        float: right;
+        padding: 12px;
+
+        @media #{$tablet-plus} {
+            height: $top-header-height;
+        }
+    }
+}
+
+.app-title-area {
+    display: none;
+    float: left;
+    padding: 20px 0 20px 12px;
+
+    @media #{$tablet-plus} {
+        display: block;
+    }
+
+    h1 {
+        color: $top-header-title-color;
+        padding: 0;
+        margin: 0;
+        font-size: 18px;
+
+        span {
+            display: none;
+            color: lighten($top-header-title-color, 15);
+
+            @media #{$desktop} {
+                display: inline;
+            }
+        }
+    }
+}

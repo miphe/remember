@@ -1,7 +1,27 @@
+// vars
+$phone-plus   : "all and (min-width: 480px)";
+$tablet       : "all and (min-width: 600px)";
+$tablet-plus  : "all and (min-width: 768px)";
+$desktop      : "all and (min-width: 940px)";
+$desktop-plus : "all and (min-width: 1024px)";
+
+$top-header-height: 60px;
+
+@import "_top-header.scss";
+
 body {
     padding-top: 50px;
-    }
+}
+
 .starter-template {
     padding: 40px 15px;
     text-align: center;
-    }
+}
+
+.is-hidden {
+    display: none;
+}
+
+.page {
+    padding-top: $top-header-height;
+}
