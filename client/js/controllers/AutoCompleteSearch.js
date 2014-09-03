@@ -9,6 +9,10 @@ angular.module('myApp.controllers')
 
         $scope.change = function() {
             search.keyword = $scope.keyword;
+            if ( ! search.keyword ) {
+                search.results = [];
+                return;
+            }
 
             $http.get('/api/search?q=' + search.keyword)
                 .then(function(data) {
