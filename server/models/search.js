@@ -49,7 +49,7 @@ es.search = function (filters) {
     return client.search({
         index: 'note',
         type:  'entry3',
-        q:     'note:' + filters.q
+        q:     'note:' + filters.keyword
     });
 };
 

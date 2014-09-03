@@ -16,7 +16,6 @@ angular.module('Authentication', [])
             return $http
                 .post('/api/user', credentials)
                 .then(function (res) {
-                    console.log(res)
                     $window.sessionStorage.token = res.data.data.token;
                     $window.sessionStorage.email = res.data.data.email;
                     return res.data.data.user;
