@@ -17,10 +17,8 @@ api.GET = function(req, res) {
         }, 500);
     }
     es.search({keyword: req.param('keyword')})
-        .then(function(docs){
-            res.json({
-                data: docs
-            }, 200);
+        .then(function(res){
+            res.json(res, 200);
         }, function(err) {
             res.json({
                 message: err.message,
