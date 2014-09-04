@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     handleErrors = require('../util/handleErrors');
