@@ -60,17 +60,22 @@
     <div class="container">
         <div class="starter-template" ng-controller="AutoCompleteSearch as autocmplt">
 
-        <div class="search-info">You search for: <em>{{keyword}}</em></div>
-        <form name="search-form" action="#" method="get">
-            <input type="text" class="form-control" ng-model="keyword" ng-change="change()" placeholder="type a keyword..." />
-            <button class="btn btn-default">Search</button>
-        </form>
-        <ul>
-            <li class="search-result" ng-repeat="sresult in autocmplt.result">
-                <div>{{sresult._source.note}}</div>
-            </li>
-        </ul>
+            <div class="search-info">Search term: <em>{{keyword}}</em></div>
+            <form role="form" class="" name="search-form" action="#" method="get">
+                <div class="form-group">
+                    <label class="sr-only" for="search-term">Search term</label>
+                    <input type="text" class="form-control" id="search-term" placeholder="Search.." ng-model="keyword" ng-change="change()">
+                </div>
 
+                <button class="btn btn-default">Search</button>
+            </form>
+            <ul>
+                <li class="search-result" ng-repeat="sresult in autocmplt.result">
+                    <div>{{sresult._source.note}}</div>
+                </li>
+            </ul>
+
+        </div>
     </div>
   </div><!-- /.container -->
 
