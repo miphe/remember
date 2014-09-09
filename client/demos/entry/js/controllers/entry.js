@@ -24,7 +24,7 @@ entryApp.directive('entryMarkdown', function() {
                 scope.closeAndNew = function() {
                     scope.saveEntry();
                     scope.resetEntry();
-                    scope.clearPreview();
+                    scope.renderPreview();
                 }
                 scope.renderPreview = function() {
                     $('.markdown-preview-el').html(converter.makeHtml(scope.entryContent));
@@ -36,10 +36,6 @@ entryApp.directive('entryMarkdown', function() {
                 scope.resetEntry = function() {
                     console.log('Resetting entry content..');
                     scope.entryContent = '';
-                }
-                scope.clearPreview = function() {
-                    console.log('Clearing preview..');
-                    scope.renderPreview();
                 }
 
                 scope.renderPreview();
