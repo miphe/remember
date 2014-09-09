@@ -5,7 +5,7 @@ entryApp.config( ['$routeProvider',
         $routeProvider.
             when('/new', { templateUrl: 'partials/write.html' }).
             when('/', { templateUrl: 'partials/info.html' }).
-            otherwise( { redirectTo: '/', templateUrl: 'partials/info.html' })
+            otherwise( { redirectTo: '/' })
     }
 ]);
 
