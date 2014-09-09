@@ -48,7 +48,7 @@ entryApp.directive('entryMarkdown', function() {
     }
 });
 
-entryApp.controller('EntryCtrl', function($scope) {
+entryApp.controller('EntryController', function($scope) {
     // TODO: Get entry from DB, or set it to ''
     $scope.entryContent = "# My entry title";
 });
