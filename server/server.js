@@ -38,10 +38,6 @@ app.use('/api', require('./api'));
  * AngularJS Starting point
  */
 
-app.get('/demos/entry', function(req, res) {
-    res.sendfile('./client/demos/entry/index.html');
-});
-
 app.get('*', function(req, res) {
     res.sendfile('./client/index.html');
 });
