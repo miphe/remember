@@ -34,6 +34,13 @@ app.use(function(req, res, next){
  */
 app.use('/api', require('./api'));
 
+/**
+ * AngularJS Starting point
+ */
+app.get('*', function(req, res) {
+    res.sendfile('./client/index.html');
+});
+
 // Error handling
 app.use(function (req, res, next) {
     var err = new Error('Not Found');
