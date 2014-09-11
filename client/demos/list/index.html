@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="listApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="listApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="listApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="listApp" class="no-js"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Remember</title>
+
+    <!-- Global assets -->
+    <link rel="stylesheet" href="../../vendors/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../css/main.min.css"/>
+    <link rel="stylesheet" href="css/list.css"/>
+    <script src="../../vendors/jquery/dist/jquery.js"></script>
+    <script src="../../js/app.bundle.js"></script>
+
+    <!-- Demo assets -->
+    <script src="js/controllers/list.js"></script>
+
+</head>
+<body>
+    <div class="page">
+        <header class="top-header">
+            <div class="app-title-area"><h1>Remember<span> - Taking notes has never been easier.</span></h1></div>
+        </header>
+
+        <div class="container" ng-controller="ListController">
+            <article class="row">
+                <div class="content col-xs-11">
+                    <div class="content-body">
+                        <h1>Lorem ipsum dolor sit amet</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
+                    </div>
+                    <a class="toggle-height"></a>
+                </div>
+                <div class="col-xs-1">
+                    <h4>meta info</h4>
+                </div>
+            </article>
+            <article class="row">
+                <div class="content col-xs-11">
+                    <div class="content-body">
+                        <h1>Lorem ipsum dolor sit amet</h1>
+                        <h2>Lorem ipsum dolor sit amet</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
+                    </div>
+                    <a class="toggle-height"></a>
+                </div>
+                <div class="col-xs-1">
+                    <h4>meta info</h4>
+                </div>
+            </article>
+            <article class="row">
+                <div class="content col-xs-11">
+                    <div class="content-body">
+                        <h1>Lorem ipsum dolor sit amet</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
+                        <pre>
+    article {
+        max-height: 200px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        border-radius: 4px 4px 0 0;
+        padding: 10px;
+        margin: 0 0 15px;
+    }
+                        </pre>
+                    </div>
+                    <a class="toggle-height"></a>
+                </div>
+                <div class="col-xs-1">
+                    <h4>meta info</h4>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script>
+        $('.content').on('click', function() {
+            if ($(this).hasClass('opened')) {
+                $(this).removeClass('opened');
+            } else {
+                $(this).addClass('opened');
+            }
+        });
+    </script>
+</body>
+</html>

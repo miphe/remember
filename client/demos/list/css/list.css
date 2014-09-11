@@ -1,0 +1,50 @@
+article {
+    margin: 0 0 15px;
+}
+
+
+.content {
+    max-height: 200px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+    padding: 0 0 24px;
+    cursor: pointer;
+}
+
+.content.opened {
+    max-height: initial;
+    cursor: default;
+}
+
+.content.opened .toggle-height {
+    background-image: url('../img/arrow-up.png');
+    cursor: pointer;
+}
+
+.content:hover .toggle-height {
+    display: block;
+}
+
+.content-body {
+    padding: 15px;
+}
+
+.content-body > :first-child { margin-top: 0 !important; }
+.content-body > :last-child { margin-bottom: 0 !important; }
+
+.toggle-height {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    background-image: url('../img/arrow-down.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 24px;
+}
+
+.toggle-height:hover {
+    background-color: #ddd;
+}
