@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="entryApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="entryApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="entryApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="entryApp" class="no-js"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Remember</title>
+
+    <!-- Global assets -->
+    <link rel="stylesheet" href="../../vendors/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../../css/main.min.css"/>
+    <script src="../../vendors/jquery/dist/jquery.js"></script>
+    <script src="../../js/app.bundle.js"></script>
+
+    <!-- Demo assets -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/showdown/0.3.1/showdown.min.js"></script>
+    <script src="js/controllers/entry.js"></script>
+
+</head>
+<body>
+
+<div class="page">
+    <header class="top-header">
+        <div class="app-title-area"><h1>Remember<span> - Taking notes has never been easier.</span></h1></div>
+    </header>
+
+    <div class="container" ng-controller="EntryController">
+        <div class="main" ng-view></div>
+    </div>
+</div>
+</body>
+</html>
