@@ -39,19 +39,16 @@ angular.module('myApp.controllers', ['Authentication'])
 
         // Returns an object of appropriate classes for each column
         $scope.xp.determineClass = function(column) {
-            console.log($scope.xp.layoutSum());
             var sum = $scope.xp.layoutSum();
             var res = {};
 
             switch(sum) {
                 case 1:
-                    console.log('Sum: ', sum);
                     // Active cols   : 1  #10   cols
                     // Inactive cols : 2  #2    cols
                     res = { 'col-sm-10': $scope.xp[column], 'col-xs-12': $scope.xp[column], 'col-sm-1': !$scope.xp[column] };
                     break;
                 case 2:
-                    console.log('Sum: ', sum);
                     // Active cols   : 2  #2x5  cols
                     // Inactive cols : 1  #2    cols
                     res = { 'col-sm-5': $scope.xp[column], 'col-xs-12': $scope.xp[column], 'col-sm-1': !$scope.xp[column] };
@@ -63,13 +60,11 @@ angular.module('myApp.controllers', ['Authentication'])
                         res = { 'col-sm-6': $scope.xp[column], 'col-xs-12': $scope.xp[column], 'col-sm-1': !$scope.xp[column] }}
                     break;
                 case 3:
-                    console.log('Sum: ', sum);
                     // Active cols   : 3  #3x4  cols
                     // Inactive cols : 0  #0    cols
                     res = { 'col-sm-4': $scope.xp[column], 'col-xs-12': $scope.xp[column], 'col-sm-1': !$scope.xp[column] };
                     break;
                 default:
-                    console.log('Sum: ', sum);
                     // Active cols   : 0  #0    cols
                     // Inactive cols : 3  #3    cols
                     res = { 'col-sm-1': true };
