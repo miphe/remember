@@ -6,11 +6,12 @@ $desktop      : "all and (min-width: 940px)";
 $desktop-plus : "all and (min-width: 1024px)";
 
 $top-header-height: 60px;
+$flex-panel-width:  30px;
 
 @import "_top-header.scss";
 
 body {
-    padding-top: 50px;
+    padding-top: $top-header-height;
 }
 
 .starter-template {
@@ -23,5 +24,54 @@ body {
 }
 
 .page {
-    padding-top: $top-header-height;
+}
+
+// Grid
+.container-fluid .row.has-flex-panels > div {
+    transition: width .5s, padding-left .5s;
+    border-right: 1px solid #e6e6e6;
+    height: 100vh;
+
+    &.is-collapsed {
+        width: $flex-panel-width;
+        float: left;
+        position: relative;
+        padding-left: 0;
+    }
+
+    &.col-sm-4,
+    &.col-sm-5,
+    &.col-sm-6,
+    &.col-sm-10 {
+        padding-left: $flex-panel-width + 15px;
+    }
+
+    &.col-sm-1 {
+        border-right: 0;
+    }
+}
+
+// Flex Panels
+.flex-panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    transition: width .3s;
+    transition-delay: .1s;
+
+    height: 100vh;
+    width: $flex-panel-width;
+
+    text-align: center;
+    background-color: #fafafa;
+    border-right: 1px solid #e6e6e6;
+
+    .col-sm-1 & {
+        width: 100%;
+    }
+}
+
+.col-content {
+    overflow: hidden;
 }

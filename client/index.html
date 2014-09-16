@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.css"/>
 	<link rel="stylesheet" href="css/main.min.css"/>
 	<script src="vendors/jquery/dist/jquery.js"></script>
+    <script src="vendors/underscore/underscore.js"></script>
 	<script src="js/app.bundle.js"></script>
 </head>
 <body ng-controller="ApplicationController">
@@ -17,18 +18,18 @@
     <div ng-include="tpl.header.url"></div>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-                <flex-panel data="tpl.search.name"></flex-panel>
-                <div ng-include="tpl.search.url"></div>
+        <div class="row has-flex-panels">
+            <div ng-class="xp.determineClass(tpl.search.name)">
+                <flex-panel ng-click="xp.toggle(tpl.search.name)" data="tpl.search.name"></flex-panel>
+                <div class="col-content" ng-include="tpl.search.url"></div>
             </div>
-            <div class="col-md-4">
-                <flex-panel data="tpl.view.name"></flex-panel>
-                <div ng-include="tpl.view.url"></div>
+            <div ng-class="xp.determineClass(tpl.view.name)">
+                <flex-panel ng-click="xp.toggle(tpl.view.name)" data="tpl.search.name"></flex-panel>
+                <div class="col-content"  ng-include="tpl.view.url"></div>
             </div>
-            <div class="col-md-4">
-                <flex-panel data="tpl.write.name"></flex-panel>
-                <div ng-include="tpl.write.url"></div>
+            <div ng-class="xp.determineClass(tpl.write.name)">
+                <flex-panel ng-click="xp.toggle(tpl.write.name)" data="tpl.search.name"></flex-panel>
+                <div class="col-content"  ng-include="tpl.write.url"></div>
             </div>
         </div>
     </div><!-- /.container-fluid -->
