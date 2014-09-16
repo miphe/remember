@@ -57,18 +57,33 @@ body {
     left: 0;
     top: 0;
 
-    transition: width .3s;
+    transition: width .3s, font-size .3s, padding-top .3s, rotate .3s;
     transition-delay: .1s;
 
     height: 100vh;
     width: $flex-panel-width;
 
+    color: darken(#fafafa, 40);
+    padding-top: $flex-panel-width * .2;
     text-align: center;
+    font-size: 1em;
     background-color: #fafafa;
     border-right: 1px solid #e6e6e6;
 
+    .glyphicon-plus {
+        transition: transform .8s;
+        transition-delay: .9s;
+        transform: rotate(-45deg);
+    }
+
     .col-sm-1 & {
+        font-size: 2em;
+        padding-top: $flex-panel-width * .8;
         width: 100%;
+
+        .glyphicon-plus {
+            transform: rotate(0deg);
+        }
     }
 }
 
