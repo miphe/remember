@@ -1,37 +1,44 @@
-article {
-    margin: 0 0 15px;
+body {
+    padding-top: 50px;
 }
 
+.page {
+    padding-top: 40px;
+}
 
-.content {
+article {
+    margin-bottom: 15px;
+}
+
+.content-body {
     max-height: 200px;
     overflow: hidden;
     border: 1px solid #ddd;
-    border-radius: 4px 4px 0 0;
-    padding: 0 0 24px;
+    border-radius: 6px 6px 0 0;
+    padding: 0;
     cursor: pointer;
 }
 
-.content.opened {
+.content-body:hover {
+    border: 1px solid #aaa;
+}
+
+.content-body.opened {
     max-height: initial;
     cursor: default;
-}
-
-.content.opened .toggle-height {
-    background-image: url('../img/arrow-up.png');
-    cursor: pointer;
-}
-
-.content:hover .toggle-height {
-    display: block;
 }
 
 .content-body {
     padding: 15px;
 }
 
-.content-body > :first-child { margin-top: 0 !important; }
-.content-body > :last-child { margin-bottom: 0 !important; }
+.content-body > :first-child {
+    margin-top: 0 !important;
+}
+
+.content-body > :last-child {
+    margin-bottom: 0 !important;
+}
 
 .toggle-height {
     display: none;
@@ -47,4 +54,13 @@ article {
 
 .toggle-height:hover {
     background-color: #ddd;
+}
+
+.content-body.opened .toggle-height {
+    background-image: url('../img/arrow-up.png');
+    cursor: pointer;
+}
+
+.content-body:hover .toggle-height {
+    /* display: block; */
 }
