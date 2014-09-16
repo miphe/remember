@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     handleErrors = require('../util/handleErrors');
+    prefix = require('gulp-autoprefixer');
 
 module.exports = function () {
   return gulp.src('client/scss/*.scss')
@@ -14,6 +15,7 @@ module.exports = function () {
     .on('error', handleErrors)
     .pipe(gulp.dest('client/css'))
     .pipe(rename({ suffix: '.min' }))
+    .pipe(prefix())
     .pipe(minifycss())
     .pipe(gulp.dest('client/css'))
 };
