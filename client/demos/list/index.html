@@ -1,109 +1,64 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="listApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="listApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="listApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="listApp" class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="rememberApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="rememberApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="rememberApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="rememberApp" class="no-js"> <!--<![endif]-->
 <head lang="en">
     <meta charset="UTF-8">
     <title>Remember</title>
 
-    <!-- Global assets -->
     <link rel="stylesheet" href="../../vendors/bootstrap/dist/css/bootstrap.css"/>
-    
-    <link rel="stylesheet" href="css/list.css"/>
-    <!--<script src="../../vendors/jquery/dist/jquery.js"></script>-->
-    <script src="../../vendors/angular/angular.js"></script>
-
-    <!-- Demo assets -->
-    <script src="js/controllers/list.js"></script>
-
+    <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <div class="navbar-brand">Remember - Taking notes has never been easier.</div>
+                <div class="navbar-brand">Remember</div>
+                <div class="navbar-text">Taking notes has never been easier</div>
             </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">Updates <span class="badge">42</span></a>
+                </li>
+            </ul>
         </div>
     </div>
 
     <div class="page">
-        <div class="container" ng-controller="SearchController">
+        <div class="container" ng-controller="searchController">
             <form role="form">
                 <div class="form-group">
-                    <input type="input" class="form-control" placeholder="Search something...">
+                    <div class="input-group">
+                        <input type="input" class="form-control" placeholder="Search something...">
+                        <label class="input-group-addon checkbox" style="padding-left: 34px;">
+                            <input type="checkbox"> All authors
+                        </label>
+                    </div>
                 </div>
             </form>
         </div>
-
-        <div class="container" ng-controller="ListController">
-            <article class="row">
-                <div class="content col-xs-10">
-                    <div class="content-body">
-                        <h1>Lorem ipsum dolor sit amet</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                    </div>
-                    <a class="toggle-height"></a>
+        <hr/>
+        <div class="container" ng-controller="listController">
+            <article class="row" ng-repeat="entry in entries">
+                <div class="panel panel-default col-xs-10">
+                    <div class="panel-body" ng-bind-html="entry.content"></div>
+                    <div class="panel-footer"><i><b>(show this on mouse over)</b> actions: expand/collapse, edit, delete || we can use this space for meta data: author, creation/modified date</i></div>
                 </div>
                 <div class="col-xs-2">
-                    <h4>meta info</h4>
-                </div>
-            </article>
-            <article class="row">
-                <div class="content col-xs-10">
-                    <div class="content-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                    </div>
-                    <a class="toggle-height"></a>
-                </div>
-                <div class="col-xs-2">
-                    <h4>meta info</h4>
-                </div>
-            </article>
-            <article class="row">
-                <div class="content col-xs-10">
-                    <div class="content-body">
-                        <h1>Lorem ipsum dolor sit amet</h1>
-                        <p>Eveniet eligendi enim neque, autem voluptate. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                        <h2>In et sit voluptates</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                    </div>
-                    <a class="toggle-height"></a>
-                </div>
-                <div class="col-xs-2">
-                    <h4>meta info</h4>
-                </div>
-            </article>
-            <article class="row">
-                <div class="content col-xs-10">
-                    <div class="content-body">
-                        <h1>Lorem ipsum dolor sit amet</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                        <pre>
-article {
-    max-height: 200px;
-    overflow: hidden;
-    border: 1px solid #ddd;
-    border-radius: 4px 4px 0 0;
-    padding: 10px;
-    margin: 0 0 15px;
-}
-                        </pre>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>
-                    </div>
-                    <a class="toggle-height"></a>
-                </div>
-                <div class="col-xs-2">
-                    <h4>meta info</h4>
+                    <a href="#"><small>@<span ng-bind="entry.author"></span></small></a>
+                    <br/>
+                    <small><span ng-bind="entry.date | date:'medium'"></span></small>
                 </div>
             </article>
         </div>
     </div>
 
+    <script src="../../vendors/angular/angular.js"></script>
+    <script src="../../vendors/angular-sanitize/angular-sanitize.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/search.js"></script>
+    <script src="js/controllers/list.js"></script>
 </body>
 </html>
