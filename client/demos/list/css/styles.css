@@ -12,18 +12,20 @@ article.row {
     margin-right: 0;
 }
 
-.panel-default {
+.panel {
     padding: 0;
 }
 
-.panel-default:hover {
+.panel:hover {
     border: 1px solid #999;
 }
 
 .panel-body {
-    max-height: 200px;
     overflow: hidden;
-    cursor: pointer;
+}
+
+.panel.collapsed .panel-body {
+    max-height: 200px;
 }
 
 .panel-body > :first-child {

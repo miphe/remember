@@ -20,6 +20,9 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li>
+                    <a href="#">Bookmarks <span class="badge" ng-bind=""></span></a>
+                </li>
+                <li>
                     <a href="#">Updates <span class="badge">42</span></a>
                 </li>
             </ul>
@@ -31,25 +34,52 @@
             <form role="form">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="input" class="form-control" placeholder="Search something...">
-                        <label class="input-group-addon checkbox" style="padding-left: 34px;">
-                            <input type="checkbox"> All authors
-                        </label>
+                        <input type="input" class="form-control" placeholder="Search something..." ng-model="search" autofocus>
+                        <span class="input-group-addon checkbox">
+                            <label>
+                                <input type="checkbox"> All authors
+                            </label>
+                        </span>
                     </div>
                 </div>
             </form>
+            <p>Showing {{entries.length}} | Filtered {{filteredEntries.length}}</p>
         </div>
+
         <hr/>
+
         <div class="container" ng-controller="listController">
             <article class="row" ng-repeat="entry in entries">
-                <div class="panel panel-default col-xs-10">
+                <div class="panel panel-default" ng-class="{'collapsed' : entry.collapsed}">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <a href="#">@<span ng-bind="entry.author"></span></a> | <small>Created at <span ng-bind="entry.created | date:'medium'"></span></small> | Last modified at <small><span ng-bind="entry.modified | date:'medium'"></span></small>
+                            </div>
+                            <div class="col-xs-5">
+                                <div class="btn-group btn-group-xs pull-right">
+<button type="button" class="btn btn-default" ng-class="{'active' : !entry.collapsed}" ng-click="toggleCollapsed($index)">
+    <span class="glyphicon glyphicon-pencil"></span> Collapse
+</button>
+<button type="button" class="btn btn-default" ng-class="{'active' : entry.shared}" ng-click="toggleShared($index)">
+    <span class="glyphicon glyphicon-globe"></span> Share
+</button>
+<button type="button" class="btn btn-default" ng-class="{'active' : entry.bookmarked}" ng-click="toggleBookmarked($index)">
+    <span class="glyphicon glyphicon-bookmark"></span> Bookmark
+</button>
+<button type="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-pencil"></span> Edit
+</button>
+<button type="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-remove"></span> Delete
+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <i><b>(show this on mouse over)</b> actions: expand/collapse, edit, delete || we can use this space for meta data: author, creation/modified date</i> -->
+                    </div>
                     <div class="panel-body" ng-bind-html="entry.content"></div>
-                    <div class="panel-footer"><i><b>(show this on mouse over)</b> actions: expand/collapse, edit, delete || we can use this space for meta data: author, creation/modified date</i></div>
-                </div>
-                <div class="col-xs-2">
-                    <a href="#"><small>@<span ng-bind="entry.author"></span></small></a>
-                    <br/>
-                    <small><span ng-bind="entry.date | date:'medium'"></span></small>
                 </div>
             </article>
         </div>
