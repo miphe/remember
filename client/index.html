@@ -20,15 +20,15 @@
     <div class="container-fluid">
         <div class="row has-flex-panels">
             <div ng-class="xp.determineClass(tpl.search.name)">
-                <flex-panel ng-click="xp.toggle(tpl.search.name)" data="tpl.search.name"></flex-panel>
+                <flex-panel ng-click="xp.toggle(tpl.search.name)"></flex-panel>
                 <div class="col-content" ng-include="tpl.search.url"></div>
             </div>
             <div ng-class="xp.determineClass(tpl.view.name)">
-                <flex-panel ng-click="xp.toggle(tpl.view.name)" data="tpl.search.name"></flex-panel>
+                <flex-panel ng-click="xp.toggle(tpl.view.name)"></flex-panel>
                 <div class="col-content"  ng-include="tpl.view.url"></div>
             </div>
             <div ng-class="xp.determineClass(tpl.write.name)">
-                <flex-panel ng-click="xp.toggle(tpl.write.name)" data="tpl.search.name"></flex-panel>
+                <flex-panel ng-click="xp.toggle(tpl.write.name)"></flex-panel>
                 <div class="col-content"  ng-include="tpl.write.url"></div>
             </div>
         </div>
