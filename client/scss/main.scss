@@ -71,9 +71,10 @@ body {
     border-right: 1px solid #e6e6e6;
 
     .glyphicon-plus {
-        transition: transform .8s;
+        transition: transform .8s, color .8s;
         transition-delay: .9s;
         transform: rotate(-45deg);
+        color: lighten(desaturate(red, 80), 10);
     }
 
     .col-sm-1 & {
@@ -83,6 +84,7 @@ body {
 
         .glyphicon-plus {
             transform: rotate(0deg);
+            color: darken(#fafafa, 10);
         }
     }
 }
