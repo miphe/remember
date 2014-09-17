@@ -6,11 +6,13 @@ $desktop      : "all and (min-width: 940px)";
 $desktop-plus : "all and (min-width: 1024px)";
 
 $top-header-height: 60px;
+$flex-panel-width:  30px;
 
 @import "_top-header.scss";
+@import "_columns.scss";
 
 body {
-    padding-top: 50px;
+    padding-top: $top-header-height;
 }
 
 .starter-template {
@@ -23,5 +25,4 @@ body {
 }
 
 .page {
-    padding-top: $top-header-height;
 }
