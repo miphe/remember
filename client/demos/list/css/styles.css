@@ -1,0 +1,37 @@
+body {
+    padding-top: 50px;
+}
+
+.page {
+    padding-top: 40px;
+}
+
+article.row {
+    margin-bottom: 15px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.panel {
+    padding: 0;
+}
+
+.panel:hover {
+    border: 1px solid #999;
+}
+
+.panel-body {
+    overflow: hidden;
+}
+
+.panel.collapsed .panel-body {
+    max-height: 200px;
+}
+
+.panel-body > :first-child {
+    margin-top: 0 !important;
+}
+
+.panel-body > :last-child {
+    margin-bottom: 0 !important;
+}

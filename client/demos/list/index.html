@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="rememberApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="rememberApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="rememberApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="rememberApp" class="no-js"> <!--<![endif]-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Remember</title>
+
+    <link rel="stylesheet" href="../../vendors/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="headerController">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">Remember</div>
+            </div>
+            <div class="collapse navbar-collapse navbar-text">Taking notes has never been easier</div>
+            <div class="collapse navbar-collapse" id="main-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <!--
+                            To do: When click on this button, the list updates with the entries which are bookmarked, ordered by the last modified date.
+                        -->
+                        <a href="#">Bookmarks <span class="label label-info" ng-bind="countBookmarked.length"></span></a>
+                    </li>
+                    <li>
+                        <!--
+                            To do:
+                            This idea is to keep track from shared entries updates from the group.
+                            In other words, every time someone update a shared (public) entry, this counter should increment.
+                            When click on this button, the list updates with the entries which have updates, ordered by the last modified date.
+                        -->
+                        <a href="#">Updates <span class="label label-primary">42</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="container" ng-controller="searchController">
+            <form role="form">
+                <div class="form-group">
+                    <div class="input-group">
+                        <!--
+                            To do: Sort the result by Last Modified date
+                        -->
+                        <input type="input" class="form-control" placeholder="Search something..." ng-model="search" autofocus>
+                        <span class="input-group-addon checkbox">
+                            <label>
+                                <!--
+                                    To do:
+                                    Make the filter search for all authors when this is enabled,
+                                    or only for the current user if not (this second option isnt working yet)
+                                -->
+                                <input type="checkbox" checked> All authors
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </form>
+
+            <!--
+                To do: Improve this informations, this is pretty much temporary yet
+            -->
+            <div class="well well-sm">
+                <div>Showing <span class="label label-default" ng-bind="entries.length"></span> | Filtered <span class="label label-default" ng-bind="filteredEntries.length"></span></div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container" ng-controller="listController">
+            <!--
+                To do: Sort by Last Modified date
+            -->
+            <article class="row" ng-repeat="entry in entries">
+                <div class="panel panel-default" ng-class="{'collapsed' : entry.collapsed}">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-7">
+                                <!--
+                                    To do:
+                                    Sort by Last Modified date;
+                                    // a lot stuff still need to be done here
+                                -->
+                                <a href="#">@<span ng-bind="entry.author"></span></a> | <small>Created at <span ng-bind="entry.created | date:'medium'"></span></small> | Last modified at <small><span ng-bind="entry.modified | date:'medium'"></span></small>
+                            </div>
+                            <div class="col-xs-12 col-sm-5">
+                                <div class="btn-group btn-group-xs pull-right">
+                                    <button type="button" class="btn btn-default" ng-class="{'active' : !entry.collapsed}" ng-click="toggleCollapsed($index)">
+                                        <span class="glyphicon glyphicon-list-alt"></span> Expand
+                                    </button>
+                                    <button type="button" class="btn btn-default" ng-class="{'active' : entry.shared}" ng-click="toggleShared($index)">
+                                        <span class="glyphicon glyphicon-globe"></span> Public
+                                    </button>
+                                    <!--
+                                        To do: on click, update the header counter.
+                                    -->
+                                    <button type="button" class="btn btn-default" ng-class="{'active' : entry.bookmarked}" ng-click="toggleBookmarked($index)">
+                                        <span class="glyphicon glyphicon-bookmark"></span> Bookmark
+                                    </button>
+                                    <!--
+                                        To do: on click go to edit mode.
+                                        /cc @miphe
+                                    -->
+                                    <button type="button" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                                    </button>
+                                    <!--
+                                        To do: on click, open a confirm alert, if ok, drop it.
+                                    -->
+                                    <button type="button" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-remove"></span> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--
+                            To do:
+                            Infinit scroll here
+                        -->
+                    </div>
+                    <div class="panel-body" ng-bind-html="entry.content"></div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <script src="../../vendors/angular/angular.js"></script>
+    <script src="../../vendors/angular-sanitize/angular-sanitize.js"></script>
+    <script src="../../vendors/jquery/dist/jquery.js"></script>
+    <script src="../../vendors/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/header.js"></script>
+    <script src="js/controllers/search.js"></script>
+    <script src="js/controllers/list.js"></script>
+
+    <!-- expecting to minify and concatenate all this stuff -->
+    <script src="../../vendors/syntaxhighlighter/scripts/XRegExp.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shCore.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushBash.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushCss.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushDiff.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushPhp.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushPlain.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushPowerShell.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushPython.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushRuby.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushSass.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushSql.js"></script>
+    <script src="../../vendors/syntaxhighlighter/scripts/shBrushXml.js"></script>
+    <link rel="stylesheet" href="../../vendors/syntaxhighlighter/styles/shCore.css"/>
+    <link rel="Stylesheet" href="../../vendors/syntaxhighlighter/styles/shThemeDefault.css" />
+    <script>
+        SyntaxHighlighter.all();
+        SyntaxHighlighter.defaults['toolbar'] = false;
+    </script>
+</body>
+</html>
