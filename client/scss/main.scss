@@ -9,6 +9,7 @@ $top-header-height: 60px;
 $flex-panel-width:  30px;
 
 @import "_top-header.scss";
+@import "_columns.scss";
 
 body {
     padding-top: $top-header-height;
@@ -24,71 +25,4 @@ body {
 }
 
 .page {
-}
-
-// Grid
-.container-fluid .row.has-flex-panels > div {
-    transition: width .5s, padding-left .5s;
-    border-right: 1px solid #e6e6e6;
-    height: 100vh;
-
-    &.is-collapsed {
-        width: $flex-panel-width;
-        float: left;
-        position: relative;
-        padding-left: 0;
-    }
-
-    &.col-sm-4,
-    &.col-sm-5,
-    &.col-sm-6,
-    &.col-sm-10 {
-        padding-left: $flex-panel-width + 15px;
-    }
-
-    &.col-sm-1 {
-        border-right: 0;
-    }
-}
-
-// Flex Panels
-.flex-panel {
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    transition: width .3s, font-size .3s, padding-top .3s, rotate .3s;
-    transition-delay: .1s;
-
-    height: 100vh;
-    width: $flex-panel-width;
-
-    color: darken(#fafafa, 40);
-    padding-top: $flex-panel-width * .2;
-    text-align: center;
-    font-size: 1em;
-    background-color: #fafafa;
-    border-right: 1px solid #e6e6e6;
-
-    .glyphicon-plus {
-        transition: transform .8s, color .8s;
-        transition-delay: .9s;
-        transform: rotate(-45deg);
-        color: lighten(desaturate(red, 80), 10);
-    }
-
-    .col-sm-1 & {
-        font-size: 2em;
-        padding-top: $flex-panel-width * .8;
-        width: 100%;
-
-        .glyphicon-plus {
-            transform: rotate(0deg);
-            color: darken(#fafafa, 10);
-        }
-    }
-}
-
-.col-content {
-    overflow: hidden;
 }
