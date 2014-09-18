@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Remember",
+  "version": "0.0.1",
+  "description": "Taking notes has never been easier.",
+  "browser_action": {
+    "default_icon": "client/img/remember_icon-19.png",
+    "default_title": "Remember"
+  },
+  "permissions": [
+    "tabs", "<all_urls>"
+  ]
+}
