@@ -3,6 +3,8 @@
 var angular = require('angular'),
     ngRoute = require('angular-route');
 
+require('angular-local-storage');
+
 require( './modules/AuthService' );
 
 require( './controllers/ApplicationController' );

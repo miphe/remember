@@ -8,5 +8,5 @@ angular.module('myApp.directives', [])
             restrict: 'E',
             scope: { 'type': '=data' },
             templateUrl: 'partials/flex-panel.html'
-        }
+        };
     });
