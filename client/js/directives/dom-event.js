@@ -5,8 +5,8 @@
  * Capturing Document-Click Events With AngularJS
  * @see http://www.bennadel.com/blog/2422-capturing-document-click-events-with-angularjs.htm
  */
-angular.module('myApp.directives', []).
-    directive(  'ng-dom-click', function( $document, $parse ){
+angular.module('myApp.directives', [])
+    .directive(  'ng-dom-click', function( $document, $parse ){
 
         var linkFunction = function( $scope, $element, $attributes ){
             var scopeExpression = $attributes.ngDomClick;
