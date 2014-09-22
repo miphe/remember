@@ -26,7 +26,7 @@
                 <flex-panel ng-click="xp.toggle(tpl.view.name)"></flex-panel>
                 <div class="col-content"  ng-include="tpl.view.url"></div>
             </div>
-            <div ng-class="xp.determineClass(tpl.write.name)">
+            <div ng-controller="EntryController" ng-class="xp.determineClass(tpl.write.name)">
                 <flex-panel ng-click="xp.toggle(tpl.write.name)"></flex-panel>
                 <div class="col-content"  ng-include="tpl.write.url"></div>
             </div>

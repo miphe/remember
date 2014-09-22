@@ -11,6 +11,7 @@ require( './controllers/ApplicationController' );
 require( './controllers/AutoCompleteSearch' );
 
 require( './directives/app-version' );
+require( './directives/entry-markdown' );
 require( './directives/flex-panel' );
 
 // Declare app level module which depends on filters, and services

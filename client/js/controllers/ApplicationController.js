@@ -115,4 +115,9 @@ angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule'])
         $scope.setCurrentUser = function (user) {
             $scope.currentUser = user;
         };
-    }]);
+    }])
+    .controller('EntryController', function($scope) {
+
+        // TODO: Get entry from DB, or set it to ''
+        $scope.entryContent = "# My entry title";
+    });
