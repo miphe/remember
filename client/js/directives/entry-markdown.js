@@ -2,14 +2,13 @@
 
 'use strict';
 
-var Showdown = require('showdown');
+var Marked = require('marked');
 var $ = require('jquery');
 
 /* Directives */
 angular.module('myApp.directives')
     .directive('entryMarkdown', function() {
-        var converter = new Showdown.converter();
-        var editTpl   = '<textarea ng-change="renderPreview()" ng-model="entryContent" autofocus rows="13" id="entry" class="form-control"></textarea>';
+        var editTpl   = '<textarea tabindex="1" ng-change="renderPreview()" ng-model="entryContent" autofocus rows="13" id="entry" class="form-control"></textarea>';
         var previewEl = '<div class="markdown-preview-el"></div>';
 
         return {
@@ -25,7 +24,7 @@ angular.module('myApp.directives')
                         scope.renderPreview();
                     };
                     scope.renderPreview = function() {
-                        $('.markdown-preview-el').html(converter.makeHtml(scope.entryContent));
+                        $('.markdown-preview-el').html(Marked(scope.entryContent));
                     };
                     scope.saveEntry = function() {
                         console.log('Saving to db..');
