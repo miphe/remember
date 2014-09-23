@@ -126,12 +126,14 @@ angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule', 'cf
 
         // Hotkeys
         hotkeys.add({
-            combo: 'ctrl+s',
+            combo: 'shift+enter',
             description: 'Save current entry',
             allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
             callback: function(e) {
                 e.preventDefault();
-                console.log($scope);
+                if ($('#entry-textarea').is(':focus')) {
+                    console.log('Saving entry..');
+                }
             }
         });
 
