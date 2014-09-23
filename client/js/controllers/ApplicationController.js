@@ -2,8 +2,11 @@
 'use strict';
 
 var _ = require('underscore');
+var $ = require('jquery');
+require('../jq-extends/jq-extends');
+require('angular-hotkeys');
 
-angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule'])
+angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule', 'cfp.hotkeys'])
     .controller('LayoutController', ['$scope', 'localStorageService', function($scope, localStorageService) {
 
         // Templates and Partials
@@ -116,8 +119,29 @@ angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule'])
             $scope.currentUser = user;
         };
     }])
-    .controller('EntryController', function($scope) {
+    .controller('EntryController', function($scope, hotkeys) {
 
         // TODO: Get entry from DB, or set it to ''
         $scope.entryContent = "# My entry title";
+
+        // Hotkeys
+        hotkeys.add({
+            combo: 'ctrl+s',
+            description: 'Save current entry',
+            allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+            callback: function(e) {
+                e.preventDefault();
+                console.log($scope);
+            }
+        });
+
+        hotkeys.add({
+            combo: 'n',
+            description: 'Expand writing panel, focus textarea, prepare for writing.',
+            callback: function(e) {
+                e.preventDefault();
+                $scope.xp.write = 1;
+                $('#entry-textarea').focusEnd();
+            }
+        });
     });

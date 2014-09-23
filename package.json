@@ -55,6 +55,7 @@
     "mongoskin": "^1.4.4",
     "monk": "~0.9.0",
     "morgan": "~1.0.0",
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "angular-hotkeys": "~1.4.5"
   }
 }

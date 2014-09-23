@@ -8,7 +8,7 @@ var $ = require('jquery');
 /* Directives */
 angular.module('myApp.directives')
     .directive('entryMarkdown', function() {
-        var editTpl   = '<textarea tabindex="1" ng-change="renderPreview()" ng-model="entryContent" autofocus rows="13" id="entry" class="form-control"></textarea>';
+        var editTpl   = '<textarea id="entry-textarea" tabindex="1" ng-change="renderPreview()" ng-model="entryContent" autofocus rows="13" id="entry" class="form-control"></textarea>';
         var previewEl = '<div class="markdown-preview-el"></div>';
 
         return {
