@@ -20,7 +20,7 @@ angular.module('Authentication', [])
                     $window.sessionStorage.email = res.data.data.email;
                     return res.data.data.user;
                 }, function(res){
-                    console && console.log(res.data.stack);
+                    console.log(res.data.stack);
                     alert(res.data.error);
                 });
         };

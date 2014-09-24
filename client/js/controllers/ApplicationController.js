@@ -1,6 +1,8 @@
 /* globals angular */
 'use strict';
 
+var _ = require('underscore');
+
 angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule'])
     .controller('LayoutController', ['$scope', 'localStorageService', function($scope, localStorageService) {
 
@@ -58,10 +60,11 @@ angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule'])
                     res = { 'col-sm-5': $scope.xp[column], 'col-xs-12': $scope.xp[column], 'col-sm-1': !$scope.xp[column] };
 
                     // When columns can't be calculated evenly, these special conditions will prioritize the right column.
-                    if (($scope.xp.view   + $scope.xp.write == 2 && column == 'write') ||
-                        ($scope.xp.search + $scope.xp.view  == 2 && column == 'view' ) ||
-                        ($scope.xp.search + $scope.xp.write == 2 && column == 'write')) {
-                        res = { 'col-sm-6': $scope.xp[column], 'col-xs-12': $scope.xp[column], 'col-sm-1': !$scope.xp[column] }}
+                    if (($scope.xp.view   + $scope.xp.write === 2 && column === 'write') ||
+                        ($scope.xp.search + $scope.xp.view  === 2 && column === 'view' ) ||
+                        ($scope.xp.search + $scope.xp.write === 2 && column === 'write')) {
+                        res = {'col-sm-6': $scope.xp[column],'col-xs-12': $scope.xp[column],'col-sm-1': !$scope.xp[column]};
+                    }
                     break;
                 case 3:
                     // Active panels   : 3  #3x4  cols
@@ -94,15 +97,14 @@ angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule'])
         };
 
         $scope.xp.updateAllStorage = function() {
-            $scope.xp.updateStorage('xp.search', $scope.xp['search']);
-            $scope.xp.updateStorage('xp.view',   $scope.xp['view']);
-            $scope.xp.updateStorage('xp.write',  $scope.xp['write']);
+            $scope.xp.updateStorage('xp.search', $scope.xp.search);
+            $scope.xp.updateStorage('xp.view',   $scope.xp.view);
+            $scope.xp.updateStorage('xp.write',  $scope.xp.write);
         };
 
         $scope.$watch('xp.search', $scope.xp.updateAllStorage);
         $scope.$watch('xp.view',   $scope.xp.updateAllStorage);
         $scope.$watch('xp.write',  $scope.xp.updateAllStorage);
-
     }])
     .controller('ApplicationController', ['$scope', 'AuthService', function ($scope, AuthService) {
 
@@ -113,4 +115,9 @@ angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule'])
         $scope.setCurrentUser = function (user) {
             $scope.currentUser = user;
         };
-    }]);
+    }])
+    .controller('EntryController', function($scope) {
+
+        // TODO: Get entry from DB, or set it to ''
+        $scope.entryContent = "# My entry title";
+    });
