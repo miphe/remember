@@ -124,7 +124,22 @@ angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule', 'cf
         // TODO: Get entry from DB, or set it to ''
         $scope.entryContent = "# My entry title";
 
-        // Hotkeys
+        $scope.closeAndNew = function() {
+            $scope.saveEntry();
+            $scope.resetEntry();
+        };
+
+        $scope.saveEntry = function() {
+            // TODO: Update existing entry or create new entry
+            console.log('Saving to db..');
+        };
+
+        $scope.resetEntry = function() {
+            console.log('Resetting entry content..');
+            $scope.entryContent = "# ";
+        };
+
+        // Entry Hotkeys
         hotkeys.add({
             combo: 'shift+enter',
             description: 'Save current entry',
