@@ -9,6 +9,8 @@ require( './modules/AuthService' );
 
 require( './controllers/ApplicationController' );
 require( './controllers/AutoCompleteSearch' );
+require( './controllers/LayoutController' );
+require( './controllers/EntryController' );
 
 require( './directives/app-version' );
 require( './directives/entry-markdown' );
