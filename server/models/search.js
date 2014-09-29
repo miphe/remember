@@ -46,10 +46,19 @@ es.reindex = function () {
  * @return {Promise}
  */
 es.search = function (filters) {
+    // console.log(filters.keyword);
     return client.search({
         index: 'note',
         type:  'entry3',
-        q:     'note:' + filters.keyword
+        note: {
+            query: {
+              match: {
+                note: filters.keyword,
+                fuzziness : 2,
+                prefix_length : 1
+              }
+            }
+          }
     });
 };
 
