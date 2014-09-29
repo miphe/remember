@@ -34,7 +34,7 @@ angular.module('myApp.controllers')
             callback: function(e) {
                 e.preventDefault();
                 if ($('#entry-textarea').is(':focus')) {
-                    console.log('Saving entry..');
+                    $scope.closeAndNew();
                 }
             }
         });
@@ -45,7 +45,7 @@ angular.module('myApp.controllers')
             callback: function(e) {
                 e.preventDefault();
                 $scope.xp.write = 1;
-                $('#entry-textarea').focusEnd();
+                $('#entry-textarea').removeAttr('disabled').focusEnd();
             }
         });
     });
