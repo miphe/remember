@@ -11,10 +11,6 @@ $flex-panel-width:  30px;
 @import "_top-header.scss";
 @import "_columns.scss";
 
-body {
-    padding-top: $top-header-height;
-}
-
 .starter-template {
     padding: 40px 15px;
     text-align: center;
