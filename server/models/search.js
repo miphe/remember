@@ -46,7 +46,6 @@ es.reindex = function () {
  * @return {Promise}
  */
 es.search = function (filters) {
-    // console.log(filters.keyword);
     return client.search({
         index: 'note',
         type:  'entry3',
