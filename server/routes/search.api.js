@@ -16,15 +16,18 @@ api.GET = function(req, res) {
             stack: err.stack
         }, 500);
     }
-    es.search({keyword: req.param('keyword')})
-        .then(function(res){
-            res.json(res, 200);
-        }, function(err) {
+    else {
+        es.search({keyword: req.param('keyword')})
+        .then(function(body){
+            var hits = body.hits.hits;
+            res.json(hits, 200);
+        }, function(error) {
             res.json({
-                message: err.message,
-                stack: err.stack
+                message: error.message,
+                stack: error.stack
             }, 500);
         });
+    }
 };
 
 /**
