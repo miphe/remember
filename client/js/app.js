@@ -1,7 +1,8 @@
 'use strict';
 
 var angular = require('angular'),
-    ngRoute = require('angular-route');
+    ngRoute = require('angular-route'),
+    ngSanitize = require('angular-sanitize');
 
 require('angular-local-storage');
 
@@ -11,6 +12,7 @@ require( './controllers/ApplicationController' );
 require( './controllers/AutoCompleteSearch' );
 require( './controllers/LayoutController' );
 require( './controllers/EntryController' );
+require( './controllers/ListController' );
 
 require( './directives/app-version' );
 require( './directives/entry-markdown' );
@@ -21,5 +23,6 @@ angular.module('myApp', [
     'ngRoute',
     'Authentication',
     'myApp.controllers',
-    'myApp.directives'
+    'myApp.directives',
+    'ngSanitize'
 ]);
