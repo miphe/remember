@@ -8,6 +8,7 @@ $desktop-plus : "all and (min-width: 1024px)";
 $top-header-height: 60px;
 $flex-panel-width:  30px;
 
+@import "mixins.scss";
 @import "_top-header.scss";
 @import "_columns.scss";
 @import "_list.scss";
