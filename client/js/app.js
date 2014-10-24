@@ -8,11 +8,8 @@ require('angular-local-storage');
 
 require( './modules/AuthService' );
 
-require( './controllers/ApplicationController' );
-require( './controllers/AutoCompleteSearch' );
-require( './controllers/LayoutController' );
-require( './controllers/EntryController' );
-require( './controllers/ListController' );
+/* Runs index.js in ./controllers */
+require('./controllers');
 
 require( './directives/app-version' );
 require( './directives/entry-markdown' );

@@ -1,14 +1,10 @@
-/* globals angular */
 'use strict';
 
-angular.module('myApp.controllers', ['Authentication', 'LocalStorageModule', 'cfp.hotkeys'])
-    .controller('ApplicationController', ['$scope', 'AuthService', function ($scope, AuthService) {
+module.exports = function($scope, AuthService) {
+    $scope.currentUser = null;
+    $scope.isLogged = AuthService.isAuthenticated;
 
-        // User
-        $scope.currentUser = null;
-        $scope.isLogged = AuthService.isAuthenticated;
-
-        $scope.setCurrentUser = function (user) {
-            $scope.currentUser = user;
-        };
-    }]);
+    $scope.setCurrentUser = function (user) {
+        $scope.currentUser = user;
+    };
+};
