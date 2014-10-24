@@ -18,30 +18,35 @@
     <div class="container-fluid">
         <div class="row has-flex-panels">
             <div ng-class="xp.determineClass(tpl.search.name)">
-                <flex-panel ng-click="xp.toggle(tpl.search.name)"></flex-panel>
-                <div class="col-content" ng-include="tpl.search.url"></div>
+                <div class="panel-inner">
+                    <flex-panel ng-click="xp.toggle(tpl.search.name)"></flex-panel>
+                    <div class="col-content" ng-include="tpl.search.url"></div>
+                </div>
             </div>
             <div ng-class="xp.determineClass(tpl.view.name)">
-                <flex-panel ng-click="xp.toggle(tpl.view.name)"></flex-panel>
-                <div class="col-content">
-                    <div class="preview-container"></div>
+                <div class="panel-inner">
+                    <flex-panel ng-click="xp.toggle(tpl.view.name)"></flex-panel>
+                    <div class="col-content">
+                        <div class="preview-container"></div>
+                    </div>
                 </div>
             </div>
             <div ng-controller="EntryController" ng-class="xp.determineClass(tpl.write.name)">
-                <flex-panel ng-click="xp.toggle(tpl.write.name)"></flex-panel>
+                <div class="panel-inner">
+                    <flex-panel ng-click="xp.toggle(tpl.write.name)"></flex-panel>
 
-                <div class="col-content">
-                    <form role="form">
-                        <div class="form-group">
-                            <label class="sr-only" for="entry">Body</label>
-                            <entry-markdown preview-el=".preview-container"></entry-markdown>
-                            <p class="help-block">Format your entry as <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>. Please note that entries will currently not be saved.</p>
-                        </div>
+                    <div class="col-content">
+                        <form role="form">
+                            <div class="form-group">
+                                <label class="sr-only" for="entry">Body</label>
+                                <entry-markdown preview-el=".preview-container"></entry-markdown>
+                                <p class="help-block">Format your entry as <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>. Please note that entries will currently not be saved.</p>
+                            </div>
 
-                        <button ng-disabled="!xp.write" id="entry-close-btn" tabindex="2" ng-click="closeAndNew()" type="button" class="btn btn-primary">Close this entry</button>
-                    </form>
-                </div>
-
+                            <button ng-disabled="!xp.write" id="entry-close-btn" tabindex="2" ng-click="closeAndNew()" type="button" class="btn btn-primary">Close this entry</button>
+                        </form>
+                    </div>
+                </div><!-- /.panel-inner -->
             </div>
         </div>
     </div><!-- /.container-fluid -->

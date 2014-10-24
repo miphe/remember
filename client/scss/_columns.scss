@@ -26,6 +26,17 @@
     }
 }
 
+.has-flex-panels {
+    .panel-inner {
+        margin: 0 -15px;
+        padding: 0 15px;
+        height: 100%;
+        overflow-y: auto;
+
+        @include pretty-scroll(#ddd);
+    }
+}
+
 // Flex Panels
 .flex-panel {
     position: absolute;
