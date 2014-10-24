@@ -14,7 +14,7 @@ angular.module('myApp.directives')
             templateUrl: 'partials/entry-text.html',
             link: function(scope, elem, attr) {
                 scope.renderPreview = function(n) {
-                    $(attr.previewEl).html(Marked(n));
+                    $(attr.previewEl).html(new Marked(n));
                 };
 
                 scope.$watch('entryContent', function(n, o) {
