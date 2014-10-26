@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Remember test suite</title>
+    <link rel="stylesheet" href="/vendors/mocha/mocha.css"/>
+</head>
+<body ng-controller="ApplicationController">
+    <div id="mocha"></div>
+
+    <!-- Load and configure mocha -->
+    <script src="/vendors/mocha/mocha.js"></script>
+    <script>
+        'use strict';
+        mocha.setup('bdd')
+        mocha.slow(500)
+        mocha.timeout(3000)
+    </script>
+
+    <!-- Load test suite -->
+    <script src="app.bundle.test.js"></script>
+
+    <!-- Kick of tests -->
+    <script>
+        mocha.run()
+    </script>
+</body>
+</html>
