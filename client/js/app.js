@@ -5,15 +5,14 @@ var angular = require('angular'),
     ngSanitize = require('angular-sanitize');
 
 require('angular-local-storage');
-
-require( './modules/AuthService' );
+require('./modules/AuthService');
 
 /* Runs index.js in ./controllers */
 require('./controllers');
 
-require( './directives/app-version' );
-require( './directives/entry-markdown' );
-require( './directives/flex-panel' );
+require('./directives/app-version');
+require('./directives/entry-markdown');
+require('./directives/flex-panel');
 
 // Declare app level module which depends on filters, and services
 angular.module('myApp', [
