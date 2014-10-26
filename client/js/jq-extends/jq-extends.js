@@ -1,13 +1,17 @@
 var $ = require('jquery');
 
 $.fn.setCursorPosition = function(position){
-    if(this.length == 0) return this;
+    if (this.length === 0) {
+        return this;
+    }
     return $(this).setSelection(position, position);
-}
+};
 
 $.fn.setSelection = function(selectionStart, selectionEnd) {
-    if(this.length == 0) return this;
-    input = this[0];
+    if (this.length === 0) {
+        return this;
+    }
+    var input = this[0];
 
     if (input.createTextRange) {
         var range = input.createTextRange();
@@ -21,9 +25,9 @@ $.fn.setSelection = function(selectionStart, selectionEnd) {
     }
 
     return this;
-}
+};
 
-$.fn.focusEnd = function(){
+$.fn.focusEnd = function() {
     this.setCursorPosition(this.val().length);
-            return this;
-}
+    return this;
+};
