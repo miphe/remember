@@ -2,6 +2,7 @@
 'use strict';
 
 var $ = require('jquery');
+var _ = require('underscore');
 require('../jq-extends/jq-extends');
 require('angular-hotkeys');
 
@@ -26,25 +27,31 @@ module.exports = function($scope, hotkeys) {
     };
 
     // Entry Hotkeys
-    hotkeys.add({
-        combo: 'shift+enter',
-        description: 'Save current entry',
-        allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
-        callback: function(e) {
-            e.preventDefault();
-            if ($('#entry-textarea').is(':focus')) {
-                $scope.closeAndNew();
+    $scope.hotkeys = [
+        {
+            combo: 'n',
+            description: 'Expand writing panel, focus textarea, prepare for writing.',
+            callback: function(e) {
+                e.preventDefault();
+                $scope.xp.write = 1;
+                $('#entry-textarea').removeAttr('disabled').focusEnd();
+            }
+        },
+        {
+            combo: 'shift+enter',
+            description: 'Save current entry',
+            allowIn: ['INPUT', 'SELECT', 'TEXTAREA'],
+            callback: function(e) {
+                e.preventDefault();
+                if ($('#entry-textarea').is(':focus')) {
+                    $scope.closeAndNew();
+                }
             }
         }
-    });
+    ];
 
-    hotkeys.add({
-        combo: 'n',
-        description: 'Expand writing panel, focus textarea, prepare for writing.',
-        callback: function(e) {
-            e.preventDefault();
-            $scope.xp.write = 1;
-            $('#entry-textarea').removeAttr('disabled').focusEnd();
-        }
+    // Adds all hotkeys
+    _.each($scope.hotkeys, function(itm) {
+        hotkeys.add(itm);
     });
 };
