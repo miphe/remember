@@ -18,6 +18,7 @@
     "node": "0.10.x"
   },
   "devDependencies": {
+    "chai": "^1.9.2",
     "gulp": "~3.8.7",
     "gulp-autoprefixer": "0.0.9",
     "gulp-jshint": "^1.8.4",
@@ -32,6 +33,7 @@
     "gulp-util": "^3.0.0",
     "jshint-stylish": "^0.4.0",
     "main-bower-files": "^2.0.0",
+    "mocha": "^2.0.1",
     "pretty-hrtime": "^0.2.1",
     "tape": "~2.13.4",
     "vinyl-source-stream": "^0.1.1"

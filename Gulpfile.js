@@ -1,9 +1,11 @@
 var gulp = require('gulp'),
     tasks = [
         'browserify',
+        'browserify_tests',
         'sass',
         'bower',
         'watch',
+        'watch_tests',
         'lint',
         'nodemon'
     ];
@@ -14,4 +16,5 @@ tasks.forEach(function(name) {
 });
 
 gulp.task('build', ['browserify', 'sass', 'lint', 'bower']);
+gulp.task('dev', ['browserify', 'browserify_tests', 'sass', 'watch', 'watch_tests', 'nodemon']);
 gulp.task('default', ['browserify', 'sass', 'watch', 'nodemon']);
