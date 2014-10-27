@@ -6,7 +6,7 @@ var chai   = require('chai'),
 var AppCtrlModule = require('../../js/controllers/ApplicationController.js');
 var AuthService = require( '../../js/modules/AuthService' );
 
-describe("ApplicationController", function() {
+xdescribe("ApplicationController", function() {
     var $scope;
 
     beforeEach(function() {

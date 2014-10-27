@@ -8,7 +8,7 @@ var AuthEvents = require('../../js/modules/AuthService/AuthEvents.js');
 var AuthInterceptor = require('../../js/modules/AuthService/AuthInterceptor.js');
 var AuthService = require('../../js/modules/AuthService/AuthService.js');
 
-describe("AuthService module", function() {
+xdescribe("AuthService module", function() {
     describe("AuthEvents", function() {
         it('should be an object', function() {
             expect(AuthEvents).to.be.an('object');
