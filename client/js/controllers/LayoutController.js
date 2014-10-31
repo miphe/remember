@@ -25,11 +25,37 @@ module.exports = function($scope, localStorageService) {
     // 0 => collapsed column
     // 1 => expanded column
     $scope.xp = {
-        cols   : ['search', 'view', 'write'],
-        search : parseInt(localStorageService.get('xp.search')),
-        view   : parseInt(localStorageService.get('xp.view'  )),
-        write  : parseInt(localStorageService.get('xp.write' ))
+        layoutDefaults: {
+            search: 0,
+            view: 0,
+            write: 1
+        }
     };
+
+    // Updates one key in local storage
+    $scope.xp.updateStorage = function(key, val) {
+        localStorageService.set(key, val);
+    };
+
+    // Returns the stored value or the default
+    $scope.xp.getStorage = function(panel) {
+        var response,
+            result = localStorageService.get('xp.' + panel);
+
+        if (result) {
+            response = parseInt(result);
+        } else {
+            response = $scope.xp.layoutDefaults[panel];
+            $scope.xp.updateStorage('xp.' + panel, response);
+        }
+
+        return response;
+    };
+
+    $scope.xp.cols   = ['search', 'view', 'write'];
+    $scope.xp.search = $scope.xp.getStorage('search');
+    $scope.xp.view   = $scope.xp.getStorage('view');
+    $scope.xp.write  = $scope.xp.getStorage('write');
 
     // Returns a number of how many columns are currently active
     $scope.xp.layoutSum = function() {
@@ -88,10 +114,6 @@ module.exports = function($scope, localStorageService) {
         }
 
         $scope.xp[panel] = val;
-    };
-
-    $scope.xp.updateStorage = function(key, val) {
-        localStorageService.set(key, val);
     };
 
     $scope.xp.updateAllStorage = function() {

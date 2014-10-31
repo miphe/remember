@@ -5,31 +5,49 @@ var chai   = require('chai'),
     sinon  = require('sinon'),
     _      = require('underscore');
 
+require('angular-local-storage');
 require('../../js/controllers');
 
 describe("LayoutController", function() {
     var $scope,
         $controller,
-        localStorageService;
+        localStorageService,
+        ls,
+        Ctrl;
 
-    beforeEach(angular.mock.module('myApp.controllers'));
+    beforeEach(function() {
+        angular.mock.module('myApp.controllers');
+        angular.mock.module('LocalStorageModule');
+    });
 
-    beforeEach(inject(function(_$rootScope_, $controller) {
-        $scope = _$rootScope_.$new();
+    beforeEach(inject(function($rootScope, $controller, _localStorageService_) {
+        $scope = $rootScope.$new();
+        localStorageService = _localStorageService_;
+        ls = {};
 
-        localStorageService = {
-            get: sinon.stub(),
-            set: sinon.stub() };
+        ls.get = sinon.spy(localStorageService, 'get');
+        ls.set = sinon.spy(localStorageService, 'set');
 
-        Ctrl = $controller('LayoutController', {$scope: $scope, localStorageService: localStorageService});
+        Ctrl = $controller('LayoutController', {
+            $scope: $scope,
+            localStorageService: localStorageService
+        });
+
+        $scope.$apply();
     }));
+
+    afterEach(function() {
+        localStorageService.get.restore();
+        localStorageService.set.restore();
+    });
 
     describe("Panels", function() {
 
-        xit('should initially set a panel state, if there\'s no state saved in localstorage', function() {
+        it('should set and get panel values initially', function() {
+
             _.each($scope.xp.cols, function(panel) {
                 expect($scope.xp[panel]).to.not.be.undefined;
-                expect(parseInt($scope.xp[panel])).to.be.an('integer');
+                expect($scope.xp[panel]).to.be.within(0, 1);
             });
 
             // Should try to get existing value
@@ -46,9 +64,9 @@ describe("LayoutController", function() {
         });
 
         it('should update localStorage if $scope.xp.updateStorage is called', function() {
-            $scope.xp.updateStorage('xp.search', 0);
+            $scope.xp.updateStorage('xp.search', 1);
             expect(localStorageService.set.calledOnce).to.be.true;
-            expect(localStorageService.set.calledWith('xp.search', 0)).to.be.true;
+            expect(localStorageService.set.calledWith('xp.search', 1)).to.be.true;
         });
 
         it('should update localStorage for all panels through $scope.xp.updateAllStorage', function() {

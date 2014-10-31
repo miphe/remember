@@ -6,7 +6,7 @@ var chai   = require('chai'),
 
 var Ctrl = require('../../js/controllers/EntryController.js');
 
-xdescribe("EntryController", function() {
+describe("EntryController", function() {
     var $scope,
         hotkeys;
 
