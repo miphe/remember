@@ -4,8 +4,7 @@
 */
 
 'use strict';
-var app = require('angular')
-    .module('myApp.controllers', ['Authentication', 'LocalStorageModule', 'cfp.hotkeys']);
+var app = require('angular').module('myApp.controllers', ['Authentication', 'LocalStorageModule', 'cfp.hotkeys']);
 
 app.controller('ApplicationController', require('./ApplicationController'));
 app.controller('AutoCompleteSearch', require('./AutoCompleteSearch'));
