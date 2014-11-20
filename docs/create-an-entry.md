@@ -13,7 +13,6 @@ to my new entry.
 *Story field*
 
 - There should be a field with several lines where I can write the body of my entry.
-- Typing a hashtag should present me with an autocomplete widget of available tags, or let me write a new one
 - I should be able to use Markdown formatting language to format my content
 - Hitting 'enter' should _not_ save the entry, but should give me a new line instead.
 - Hitting 'shift+enter' should save the entry
