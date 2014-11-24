@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    ngHtml2Js = require("gulp-ng-html2js"),
     tasks = [
         'browserify',
         'browserify_tests',
@@ -9,6 +10,13 @@ var gulp = require('gulp'),
         'lint',
         'nodemon'
     ];
+
+gulp.src("./client/partials/*.html")
+    .pipe(ngHtml2Js({
+        moduleName: "templates",
+        prefix: "/partials"
+    }))
+    .pipe(gulp.dest(".dist/partials"));
 
 // Dynamically load defined tasks from their respective files
 tasks.forEach(function(name) {
