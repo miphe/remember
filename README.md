@@ -1,61 +1,52 @@
-Remember
-====
+# Remember
+_Goals:_
 
-Goals:
-
-- encourage firehose-style communication within a remote team, so that people are aware of what others are working on.
-- take notes about things as they happen, without interrupting your flow.
-- a searchable knowledge-base.
+- Encourage firehose-style communication within a remote team, so that people are aware of what others are working on.
+- Take notes about things as they happen, without interrupting your flow.
+- A searchable knowledge-base.
 
 <a name="HighLevelUsage"></a>
-High level usage
-----
+## High level usage
+_Initial application behavior / <abbr title="Minimum Viable Product">MVP</abbr>_
 
-### Writing
+### Writing entries
+- As you are working on something, start typing about what you're doing.
+- When you change work-topic, close your entry and start writing on a new entry.
 
-- as you are working on something, start typing about what you're doing.
-- as you type an autosuggest gives you feedback on previous topics, so that you can easily continue writing about a topic from before.
+### Reading / viewing entries 
+- When you view an old entry, you also see a list of suggestions for "related items".
+- If you see one of the suggestions and agree that the 2 items are related, you can link them.
+- When you are reading an existing entry
+  - you may choose to edit that entry
+  - you may choose to create a new entry linked to the current entry
 
-### Reading
+### Searching for / listing entries
+- To search for things you type in the search field and results appear in a list.
+- In the search results list you can choose which entry to view.
+- In the search results list you can choose _Create related entry_.
+- In the search results list you can choose _Edit entry_
 
-- when you view an old entry, you also see a list of suggestions for "related items".
-- if you see one of the suggestions and agree that the 2 items are related, you can link them.
-- when you are reading an old item and want to add new information, you can either write a new entry (which immediately becomes linked) or edit the old entry (if there is something incorrect there).
+### Registering, Editing users
+- Register new user
+- Edit own user details
 
-### Searching
+## How to contribute
+_For the initial release, only [high level usage](#HighLevelUsage) functionality should be addressed. If you have any questions about how the application aims to work (if anything is unclear), please open a new issue and request a clarification._
 
-- to search for things you type in the search field and related items appear.
+1. Write an acceptance test
+  - Write an [acceptance test](https://github.com/x-team/standards/blob/master/end-user-tests/README.md) that demonstrates the expected behavior from the user's point of view. Add it to [/docs](/docs) and submit a pull-request so we can confirm that it describes the expectations accurately.
+2. Implement
+  - Choose a User Story in [the docs directory](/docs)
+  - When you have some work that meets the acceptance test, send a pull-request.
+  - For code that sensibly can be tested, you should include automated unit tests ([angular client test examples](/client/test)).
 
-How to contribute
-----
+## Technologies
+_For full list please see [package.json](/package.json)_
 
-### Discuss the requirements
+- Node.js
+- AngularJS
+- Elastic Search
+- Mocha/Sinon/Chai
 
-We are starting with the overview of behaviour described [High level usage](#HighLevelUsage). If something there is not clear, open an Issue with your question.
-
-### Write an acceptance test
-
-Write an [acceptance test](https://github.com/x-team/standards/blob/master/end-user-tests/README.md) that demonstrates the expected behaviour from the user's point of view. Add it to `./docs` and submit a pull-request so we can confirm that it describes the expectations accurately.
-
-### Implement
-
-- let us know which acceptance test (from `./docs`) you are implementing. You can choose to work on whichever you like.
-- when you have something that meets the acceptance test, send a pull-request.
-- ideally you will be able to include test scripts that automate some or all of the acceptance test.
-
-Tech
-----
-
-- node.js
-- elasticsearch
-
-### Libraries
-
-- http://npmjs.org/package/tape
-- https://www.npmjs.org/package/wd
-- https://www.npmjs.org/package/browserify
-
-See also
-----
-
-- [thoughts on keeping a work jornal](https://github.com/joshwnj/words/blob/master/work-journal.md)
+## See also
+- [Thoughts on keeping a work journal](https://github.com/joshwnj/words/blob/master/work-journal.md)
