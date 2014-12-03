@@ -18,3 +18,6 @@ require('./controller/LayoutController.unit.js');
 /* -> Modules */
 // Authservice is only tested naively, should be reworked and properly mocked.
 require('./module/AuthService.unit.js');
+
+/* -> Directives */
+require('./directives/GeneralDirectives.unit.js');

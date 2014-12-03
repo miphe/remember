@@ -18,7 +18,8 @@ module.exports = function($scope) {
         {
             created: "2014-10-01T01:08:39.778Z",
             modified: "2014-10-01T01:08:39.778Z",
-            content: "<p>try this keywords on search field: <strong>baz</strong></p>" +
+            content: "<h1>Lorem ipsum dolor sit amet</h1>" +
+                    "<p>try this keywords on search field: <strong>baz</strong></p>" +
                     "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>",
             author: "Hammerizer",
             shared: false,
@@ -43,7 +44,8 @@ module.exports = function($scope) {
         {
             created: "2014-10-01T01:08:39.778Z",
             modified: "2014-10-01T01:08:39.778Z",
-            content: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>" +
+            content: "<h1>Lorem ipsum dolor sit amet</h1>" +
+                    "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>" +
                     "<p>try this keywords on search field: <strong>wat</strong></p>" +
                     "<pre class=\"brush: css\">" +
                     "article {\n" +
@@ -65,7 +67,8 @@ module.exports = function($scope) {
         {
             created: "2014-10-01T01:08:39.778Z",
             modified: "2014-10-01T01:08:39.778Z",
-            content: "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>" +
+            content: "<h1>Lorem ipsum dolor sit amet</h1>" +
+                    "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quo quam aspernatur. In et sit voluptates impedit nisi laborum consequuntur ab earum maxime aspernatur, sint at quaerat illo reiciendis quibusdam.</p>" +
                     "<p>try this keywords on search field: <strong>yoo</strong></p>" +
                     "<pre class=\"brush: js\">" +
                     "app.controller('searchController', function ($scope, Data, $filter) {\n" +

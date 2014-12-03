@@ -1,0 +1,39 @@
+<div class="panel-footer clearfix">
+    <small class="pull-left">
+        <!--
+            To do: add world wide timezone powers here
+        -->
+        <span ng-bind="entry.created | date: 'medium'"></span>
+    </small>
+
+    <div class="btn-group btn-group-xs pull-right">
+        <!--
+            To do: Some buttons are meant to show only for the owner of the entry
+        -->
+        <button type="button" class="btn btn-default" ng-class="{'active' : !entry.collapsed}" ng-click="toggleCollapsed($index)">
+            <span class="fui-plus"></span> Expand
+        </button>
+        <button type="button" class="btn btn-default" ng-class="{'active' : entry.shared}" ng-click="toggleShared($index)">
+            <span class="fui-eye"></span> Public
+        </button>
+        <!--
+            To do: on click, update the header counter.
+        -->
+        <button type="button" class="btn btn-default" ng-class="{'active' : entry.bookmarked}" ng-click="toggleBookmarked($index)">
+            <span class="fui-star-2"></span> Bookmark
+        </button>
+        <!--
+            To do: on click go to edit mode.
+            /cc @miphe
+        -->
+        <button type="button" class="btn btn-default">
+            <span class="fui-new"></span> Edit
+        </button>
+        <!--
+            To do: on click, open a confirm alert, if ok, drop it.
+        -->
+        <button type="button" class="btn btn-default">
+            <span class="fui-cross"></span> Delete
+        </button>
+    </div>
+</div>

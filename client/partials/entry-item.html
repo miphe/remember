@@ -1,0 +1,8 @@
+<div class="panel panel-default" ng-class="{'collapsed' : entry.collapsed}">
+    <div class="panel-body">
+        <div class="media-body">
+            <p ng-bind-html="entry.content | limitTo:180"></p>
+        </div>
+    </div>
+    <entry-footer></entry-footer>
+</div>

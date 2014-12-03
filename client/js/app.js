@@ -10,9 +10,8 @@ require('./modules/AuthService');
 /* Runs index.js in ./controllers */
 require('./controllers');
 
-require('./directives/app-version');
-require('./directives/entry-markdown');
-require('./directives/flex-panel');
+/* Runs index.js in ./controllers */
+require('./directives');
 
 // Declare app level module which depends on filters, and services
 angular.module('myApp', [

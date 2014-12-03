@@ -9,6 +9,7 @@ $top-header-height: 60px;
 $flex-panel-width:  30px;
 
 @import "mixins.scss";
+@import "_flat-ui.scss";
 @import "_top-header.scss";
 @import "_columns.scss";
 @import "_list.scss";
@@ -22,5 +23,31 @@ $flex-panel-width:  30px;
     display: none;
 }
 
-.page {
+// _entry-list-item-footer
+.panel {
+    h1 {
+        margin-top: 0;
+    }
+
+    // Sets appropriate font sizes on panel headings
+    @each $t in 1, 2, 3, 4, 5, 6 {
+        h#{$t} {
+            $size: 60-($t*15);
+            @if $size <= 18 { $size: 18; }
+            @if $t >= 4 { font-weight: bold; }
+            font-size: #{$size}px;
+        }
+    }
+
+    .panel-footer {
+        .btn {
+            padding: 10px;
+            border-radius: 0;
+
+            &:last-child {
+                border-bottom-right-radius: 3px;
+            }
+        }
+    }
 }
+
