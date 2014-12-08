@@ -3,3 +3,13 @@ Gemfile.lock
 client/css/*.map
 client/css/*.css
 client/js/app.bundle.js
+
+node_modules
+bower_components/**/*
+bower_components
+
+#phpStorm
+.idea
+.idea/
+.idea/*
+.idea/**/*
