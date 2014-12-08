@@ -50,3 +50,4 @@ _For full list please see [package.json](/package.json)_
 
 ## See also
 - [Thoughts on keeping a work journal](https://github.com/joshwnj/words/blob/master/work-journal.md)
+- [How to have less meetings](http://x-team.com/2014/12/less-meetings/)
