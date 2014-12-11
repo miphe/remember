@@ -33,9 +33,10 @@ _Initial application behavior / <abbr title="Minimum Viable Product">MVP</abbr>_
 ## How to contribute
 _For the initial release, only [high level usage](#HighLevelUsage) functionality should be addressed. If you have any questions about how the application aims to work (if anything is unclear), please open a new issue and request a clarification._
 
-1. Write an acceptance test
+1. Read the [contribute guidelines](/CONTRIBUTING.md), in there you will find out how to get started including details on how to install and setup the development environment.
+2. Write an acceptance test
   - Write an [acceptance test](https://github.com/x-team/standards/blob/master/end-user-tests/README.md) that demonstrates the expected behavior from the user's point of view. Add it to [/docs](/docs) and submit a pull-request so we can confirm that it describes the expectations accurately.
-2. Implement
+3. Implement
   - Choose a User Story in [the docs directory](/docs)
   - When you have some work that meets the acceptance test, send a pull-request.
   - For code that sensibly can be tested, you should include automated unit tests ([angular client test examples](/client/test)).
