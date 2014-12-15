@@ -90,7 +90,6 @@ The default task will be watching for document changes, recompiling assets and r
 
 ## Folder structure
 
->>>
     - docs           | Acceptance Tests & Documents
     - includes       | Includes and Helpers
     - public         | Public app directory from which static files are
