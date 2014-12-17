@@ -14,7 +14,7 @@ module.exports = function() {
                 $(attr.previewEl).html(Marked(n));
             };
 
-            scope.$watch('entryContent', function(n, o) {
+            scope.$watch('entry.content.body', function(n, o) {
                 scope.renderPreview(n);
             });
         }

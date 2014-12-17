@@ -6,10 +6,9 @@ var _ = require('underscore');
 require('../jq-extends/jq-extends');
 require('angular-hotkeys');
 
-module.exports = function($scope, hotkeys) {
+module.exports = function($scope, hotkeys, EntryService) {
 
-    // TODO: Get entry from DB, or set it to ''
-    $scope.entryContent = "# My entry title";
+    $scope.entry = EntryService.new();
 
     $scope.closeAndNew = function() {
         $scope.saveEntry();
@@ -22,8 +21,8 @@ module.exports = function($scope, hotkeys) {
     };
 
     $scope.resetEntry = function() {
-        console.log('Resetting entry content..');
-        $scope.entryContent = "# ";
+        console.log('Resetting entry..');
+        $scope.entry = EntryService.new();
     };
 
     // Entry Hotkeys
