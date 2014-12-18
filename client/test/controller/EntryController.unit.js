@@ -16,8 +16,10 @@ describe("EntryController", function() {
         hotkeys = { add : sinon.stub() };
         EntryService = {
             new: sinon.stub().returns({
-                "content": {"body": '# MyTitle'}
-            })
+                    "content": {"body": '# MyTitle'}
+                }),
+            allSavedEntriesShort: sinon.stub(),
+            saveEntry: sinon.stub()
         };
         Ctrl($scope, hotkeys, EntryService);
     });

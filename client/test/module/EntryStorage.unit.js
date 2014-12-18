@@ -68,15 +68,15 @@ describe("EntryStorage module", function() {
 
                 // Confirms correct methods were called
                 expect(self.localStorageService.set.calledOnce).to.be.true;
-                expect(self.localStorageService.set.calledWith('entry-' + anEntry.id, anEntry)).to.be.true;
+                expect(self.localStorageService.set.calledWith('entry-' + anEntry.id, JSON.stringify(anEntry))).to.be.true;
             });
 
-            it('should retrieve entry from localStorage; getEntryById()', function() {
+            it('should retrieve entry from localStorage; entryById()', function() {
                 // Confirms methods were not called yet
                 expect(self.localStorageService.get.called).to.be.false;
 
                 var id = 123;
-                es.getEntryById(id);
+                es.entryById(id);
 
                 // Confirms correct methods were called
                 expect(self.localStorageService.get.calledOnce, 'called once.').to.be.true;

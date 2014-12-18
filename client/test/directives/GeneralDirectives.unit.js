@@ -46,8 +46,7 @@ describe("GeneralDirectives", function() {
         // should NOT be disabled if panel is open
         // should have tabindex 1
 
-        // should call renderPreview function when model changes
-        it('should call renderPreview function when model changes', function() {
+        xit('should call renderPreview function when model changes', function() {
             // expect($scope.renderPreview.called, 'expect not to be called').to.be.false;
 
             var el = compiled.find('textarea');

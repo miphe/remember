@@ -42,8 +42,28 @@
                                 <p class="help-block">Format your entry as <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>. Please note that entries will currently not be saved.</p>
                             </div>
 
-                            <button ng-disabled="!xp.write" id="entry-close-btn" tabindex="2" ng-click="closeAndNew()" type="button" class="btn btn-primary">Close this entry</button>
+                            <div class="btn-group">
+                                <a title="Save entry and create a new" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-close-btn" tabindex="2" ng-click="closeAndNew()">
+                                    <span class="fui-check"></span>
+                                </a>
+                                <a title="Create new entry without saving current" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-reset-btn" tabindex="2" ng-click="resetEntry()">
+                                    <span class="fui-cross"></span>
+                                </a>
+                                <a title="Delete all saved entries" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-destroy-btn" tabindex="2" ng-click="deleteAll()">
+                                    <span class="fui-loop"></span>
+                                </a>
+                            </div>
+
                         </form>
+                        <h4>Saved entries..</h4>
+                        <ul class="list-group">
+                            <li ng-repeat="entry in entriesShort | orderBy:'-createdAt'">
+                                <div class="list-group-item list-group-item-inner is-clickable" ng-click="loadEntry(entry.id)">
+                                    <p><small>{{entry.createdAt}} | {{entry.author}}</small></p>
+                                    <div ng-bind-html="entry.excerpt"></div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div><!-- /.panel-inner -->
             </div>

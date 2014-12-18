@@ -1,5 +1,15 @@
 'use strict';
 
+var _ = require('underscore');
+var Marked = require('marked');
+var dateFormat = require('dateformat');
+var renderer = new Marked.Renderer();
+
+renderer.heading = function (text, level) {
+    var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+    return '<h6>' + text + '</h6>';
+};
+
 /**
  * EntryService, responsible for handling entries through localStorage
  */
@@ -36,7 +46,7 @@ module.exports = function(AuthService, localStorageService) {
             throw new ReferenceError('Need to be authenticated to create entries');
         } else {
             return {
-                "id": guid(),
+                "id":        guid(),
                 "createdAt": new Date(),
                 "createdBy": currentUser(),
                 "content": {
@@ -47,13 +57,52 @@ module.exports = function(AuthService, localStorageService) {
     };
 
     self.saveEntry = function(entry) {
-        // JSON.stringify(entry)
-        localStorageService.set('entry-' + entry.id, entry);
+        localStorageService.set('entry-' + entry.id, JSON.stringify(entry));
     };
 
-    self.getEntryById = function(id) {
-        // JSON.parse
-        return localStorageService.get('entry-' + id);
+    self.stripIdFromKey = function(key) {
+        return key.match(/(?!entry\b|-)\b(\d|\w|-)+/g);
+    };
+
+    self.entryById = function(id) {
+        var entry = localStorageService.get('entry-' + id);
+
+        if (typeof entry == "string")
+            entry = JSON.parse(localStorageService.get('entry-' + id));
+
+        return entry;
+    };
+
+    self.entryByIdShort = function(id) {
+        var entry = this.entryById(id);
+        var excerpt = entry.content.body.match(/^.{0,70}(\w{1})/g) + ' ...'
+        return {
+            "id":        id,
+            "createdAt": dateFormat(entry.createdAt),
+            "author":    entry.createdBy.title + ' ' + entry.createdBy.firstName + ' ' + entry.createdBy.lastName,
+            "excerpt":   Marked(excerpt, { renderer: renderer })
+        };
+    };
+
+    self.allSavedEntriesShort = function() {
+        var allKeys = this.allSavedEntryKeys();
+        return _.map(allKeys, function(k) {
+            var id = self.stripIdFromKey(k);
+            return self.entryByIdShort(id);
+        });
+    };
+
+    self.destroyAll = function() {
+        var allKeys = this.allSavedEntryKeys();
+        return _.each(allKeys, function(k) {
+            localStorageService.remove(k);
+        });
+    };
+
+    self.allSavedEntryKeys = function() {
+        return _.filter(localStorageService.keys(), function(k) {
+            return k.match(/(entry-){1}[a-z0-9\-]*/g);
+        });
     };
 
     return self;

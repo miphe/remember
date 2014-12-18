@@ -15,11 +15,11 @@ module.run(['$templateCache', function($templateCache) {
     '        </div>\n' +
     '        <button class="btn btn-default">Search</button>\n' +
     '    </form>\n' +
-    '    <!-- <ul>\n' +
+    '    <ul>\n' +
     '        <li class="search-result" ng-repeat="sresult in autocmplt.result">\n' +
-    '            <div>{{sresult._source.note}}</div>\n' +
+    '            <div>:o {{sresult._source.note}}</div>\n' +
     '        </li>\n' +
-    '    </ul> -->\n' +
+    '    </ul>\n' +
     '</div>\n' +
     '\n' +
     '\n' +
