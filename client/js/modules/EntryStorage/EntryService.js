@@ -22,8 +22,15 @@ module.exports = function(AuthService, localStorageService) {
         return {
             title: 'Mr',
             firstName: 'Existing',
-            lastName: 'H User'
+            lastName: 'User'
         };
+    };
+
+    var formatUserName = function(type, u) {
+        return {
+            fullName: u.title + ' ' + u.firstName + ' ' + u.lastName,
+            shortName: u.firstName[0] + '.' + u.lastName
+        }[type];
     };
 
     // Also doesn't belong here
@@ -48,7 +55,7 @@ module.exports = function(AuthService, localStorageService) {
             return {
                 "id":        guid(),
                 "createdAt": new Date(),
-                "createdBy": currentUser(),
+                "createdBy": formatUserName('fullName', currentUser()),
                 "content": {
                     "body": '# MyTitle'
                 }
@@ -86,7 +93,7 @@ module.exports = function(AuthService, localStorageService) {
             "id":         id,
             "prettyDate": dateFormat(entry.createdAt),
             "createdAt":  entry.createdAt,
-            "author":     entry.createdBy.title + ' ' + entry.createdBy.firstName + ' ' + entry.createdBy.lastName,
+            "author":     formatUserName('shortName', currentUser()),
             "excerpt":    Marked(excerpt, { renderer: renderer })
         };
     };
