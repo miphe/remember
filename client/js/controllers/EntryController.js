@@ -34,7 +34,7 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
         $rootScope.$broadcast('listRender');
     };
 
-    $scope.broadCastEntryLoad = function(id) {
+    $scope.broadcastEntryLoad = function(id) {
         $rootScope.$broadcast('entryLoad', id);
     };
 

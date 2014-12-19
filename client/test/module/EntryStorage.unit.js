@@ -9,8 +9,6 @@ require('../../js/modules/EntryStorage');
 
 describe("EntryStorage module", function() {
 
-
-
     describe("EntryService", function() {
         var es,
             self,

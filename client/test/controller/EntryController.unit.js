@@ -11,20 +11,36 @@ describe("EntryController", function() {
         hotkeys,
         EntryService;
 
-    beforeEach(function() {
-        $scope = {};
+    beforeEach(inject(function(_$rootScope_) {
+        $scope = _$rootScope_.$new();
         hotkeys = { add : sinon.stub() };
         EntryService = {
             new: sinon.stub().returns({
-                    "content": {"body": '# MyTitle'}
-                }),
+                content: { body: '# MyTitle'}
+            }),
             allSavedEntriesShort: sinon.stub(),
-            saveEntry: sinon.stub()
+            hasChanges: sinon.stub(),
+            isExisting: sinon.stub(),
+            entryById: sinon.stub(),
+            destroy: sinon.stub()
         };
-        Ctrl($scope, hotkeys, EntryService);
-    });
+        Ctrl(_$rootScope_, $scope, hotkeys, EntryService);
+    }));
 
     describe("Entry", function() {
+
+        var saveEntry,
+            resetEntry;
+
+        beforeEach(function() {
+            saveEntry = sinon.spy($scope, 'saveEntry');
+            resetEntry = sinon.spy($scope, 'resetEntry');
+        });
+
+        afterEach(function() {
+            saveEntry.restore();
+            resetEntry.restore()
+        });
 
         it('should set default entry if there\'s none in session', function() {
             expect($scope).to.be.ok;
@@ -33,8 +49,6 @@ describe("EntryController", function() {
         });
 
         it('should close entry and create new', function() {
-            var saveEntry = sinon.spy($scope, 'saveEntry');
-            var resetEntry = sinon.spy($scope, 'resetEntry');
             expect($scope.closeAndNew).to.be.a('function');
 
             // Run the closeAndNew() function
