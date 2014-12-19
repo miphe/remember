@@ -8,7 +8,7 @@
 
     <ul class="list-group">
         <li ng-repeat="entry in entriesShort | orderBy:'-createdAt' | filter:keyword">
-            <article class="smooth-brd list-group-item list-group-item-inner is-clickable" ng-click="broadCastEntryLoad(entry.id)">
+            <article class="smooth-brd list-group-item list-group-item-inner is-clickable" ng-click="broadcastEntryLoad(entry.id)">
 
                 <p><small>{{entry.prettyDate}} | {{entry.author}}</small></p>
                 <div ng-bind-html="entry.excerpt"></div>

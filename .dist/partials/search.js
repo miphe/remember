@@ -16,7 +16,8 @@ module.run(['$templateCache', function($templateCache) {
     '\n' +
     '    <ul class="list-group">\n' +
     '        <li ng-repeat="entry in entriesShort | orderBy:\'-createdAt\' | filter:keyword">\n' +
-    '            <div class="smooth-brd list-group-item list-group-item-inner is-clickable" ng-click="broadCastEntryLoad(entry.id)">\n' +
+    '            <article class="smooth-brd list-group-item list-group-item-inner is-clickable" ng-click="broadcastEntryLoad(entry.id)">\n' +
+    '\n' +
     '                <p><small>{{entry.prettyDate}} | {{entry.author}}</small></p>\n' +
     '                <div ng-bind-html="entry.excerpt"></div>\n' +
     '\n' +
@@ -26,7 +27,7 @@ module.run(['$templateCache', function($templateCache) {
     '                    </a>\n' +
     '                </div>\n' +
     '\n' +
-    '            </div>\n' +
+    '            </article>\n' +
     '        </li>\n' +
     '    </ul>\n' +
     '\n' +
