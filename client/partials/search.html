@@ -1,28 +1,26 @@
-<div class="starter-template" ng-controller="AutoCompleteSearch as autocmplt">
-    <div class="search-info">Search term: <em>{{keyword}}</em></div>
+<div ng-controller="EntryController">
+
     <form role="form" class="" name="search-form" action="#" method="get">
         <div class="form-group">
-            <label class="sr-only" for="search-term">Search term</label>
-            <input type="text" class="form-control" id="search-term" placeholder="Search.." ng-model="keyword" ng-change="change()">
+            <input type="text" class="form-control" id="search-term" placeholder="Filter entries.." ng-model="keyword">
         </div>
-        <button class="btn btn-default">Search</button>
     </form>
-    <ul>
-        <li class="search-result" ng-repeat="sresult in autocmplt.result">
-            <div>:o {{sresult._source.note}}</div>
+
+    <ul class="list-group">
+        <li ng-repeat="entry in entriesShort | orderBy:'-createdAt' | filter:keyword">
+            <article class="smooth-brd list-group-item list-group-item-inner is-clickable" ng-click="broadCastEntryLoad(entry.id)">
+
+                <p><small>{{entry.prettyDate}} | {{entry.author}}</small></p>
+                <div ng-bind-html="entry.excerpt"></div>
+
+                <div class="btn-group">
+                    <a title="Delete this entry" href="#" class="btn btn-primary" ng-disabled="!xp.search" ng-click="deleteAndNew(entry.id)">
+                        <span class="fui-cross"></span>
+                    </a>
+                </div>
+
+            </article>
         </li>
     </ul>
-</div>
 
-
-<!--
-    listController
--->
-<div ng-controller="ListController">
-    <!--
-        To do: Sort by Last Modified date
-    -->
-    <article class="entry row" ng-repeat="entry in entries">
-        <entry-item></entry-item>
-    </article>
 </div>

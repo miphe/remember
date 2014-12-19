@@ -57,7 +57,12 @@ module.exports = function(AuthService, localStorageService) {
     };
 
     self.saveEntry = function(entry) {
-        localStorageService.set('entry-' + entry.id, JSON.stringify(entry));
+        var key = this.keyIfyId(entry.id);
+        localStorageService.set(key, JSON.stringify(entry));
+    };
+
+    self.keyIfyId = function(id) {
+        return 'entry-' + id;
     };
 
     self.stripIdFromKey = function(key) {
@@ -65,22 +70,24 @@ module.exports = function(AuthService, localStorageService) {
     };
 
     self.entryById = function(id) {
-        var entry = localStorageService.get('entry-' + id);
+        var key = this.keyIfyId(id);
+        var entry = localStorageService.get(key);
 
-        if (typeof entry == "string")
-            entry = JSON.parse(localStorageService.get('entry-' + id));
+        if (typeof entry === "string")
+            entry = JSON.parse(localStorageService.get(key));
 
         return entry;
     };
 
     self.entryByIdShort = function(id) {
         var entry = this.entryById(id);
-        var excerpt = entry.content.body.match(/^.{0,70}(\w{1})/g) + ' ...'
+        var excerpt = entry.content.body.match(/^.{0,70}(\w{1})/g) + ' ...';
         return {
-            "id":        id,
-            "createdAt": dateFormat(entry.createdAt),
-            "author":    entry.createdBy.title + ' ' + entry.createdBy.firstName + ' ' + entry.createdBy.lastName,
-            "excerpt":   Marked(excerpt, { renderer: renderer })
+            "id":         id,
+            "prettyDate": dateFormat(entry.createdAt),
+            "createdAt":  entry.createdAt,
+            "author":     entry.createdBy.title + ' ' + entry.createdBy.firstName + ' ' + entry.createdBy.lastName,
+            "excerpt":    Marked(excerpt, { renderer: renderer })
         };
     };
 
@@ -95,14 +102,32 @@ module.exports = function(AuthService, localStorageService) {
     self.destroyAll = function() {
         var allKeys = this.allSavedEntryKeys();
         return _.each(allKeys, function(k) {
-            localStorageService.remove(k);
+            var id = self.stripIdFromKey(k);
+            self.destroy(id);
         });
+    };
+
+    self.destroy = function(id) {
+        if (!id) { throw 'ID error: ' + id; }
+        var key = this.keyIfyId(id);
+        return localStorageService.remove(key);
     };
 
     self.allSavedEntryKeys = function() {
         return _.filter(localStorageService.keys(), function(k) {
             return k.match(/(entry-){1}[a-z0-9\-]*/g);
         });
+    };
+
+    self.isExisting = function(id) {
+        var key = this.keyIfyId(id);
+        return localStorageService.get(key) !== null;
+    };
+
+    self.hasChanges = function(peerEntry) {
+        var original = this.new().content;
+        var peer = peerEntry.content;
+        return _.isEqual(original, peer) === false;
     };
 
     return self;

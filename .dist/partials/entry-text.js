@@ -6,7 +6,16 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('/partialsentry-text.html',
-    '<textarea name="entry-markdown" ng-disabled="!xp.write" id="entry-textarea" tabindex="1" ng-model="entry.content.body" autofocus rows="13" class="form-control"></textarea>\n' +
+    '<textarea\n' +
+    '    name="entry-markdown"\n' +
+    '    ng-disabled="!xp.write"\n' +
+    '    id="entry-textarea"\n' +
+    '    tabindex="1"\n' +
+    '    ng-model="entry.content.body"\n' +
+    '    autofocus\n' +
+    '    rows="13"\n' +
+    '    class="form-control"\n' +
+    '></textarea>\n' +
     '');
 }]);
 })();

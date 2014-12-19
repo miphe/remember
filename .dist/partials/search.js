@@ -6,33 +6,30 @@ try {
 }
 module.run(['$templateCache', function($templateCache) {
   $templateCache.put('/partialssearch.html',
-    '<div class="starter-template" ng-controller="AutoCompleteSearch as autocmplt">\n' +
-    '    <div class="search-info">Search term: <em>{{keyword}}</em></div>\n' +
+    '<div ng-controller="EntryController">\n' +
+    '\n' +
     '    <form role="form" class="" name="search-form" action="#" method="get">\n' +
     '        <div class="form-group">\n' +
-    '            <label class="sr-only" for="search-term">Search term</label>\n' +
-    '            <input type="text" class="form-control" id="search-term" placeholder="Search.." ng-model="keyword" ng-change="change()">\n' +
+    '            <input type="text" class="form-control" id="search-term" placeholder="Filter entries.." ng-model="keyword">\n' +
     '        </div>\n' +
-    '        <button class="btn btn-default">Search</button>\n' +
     '    </form>\n' +
-    '    <ul>\n' +
-    '        <li class="search-result" ng-repeat="sresult in autocmplt.result">\n' +
-    '            <div>:o {{sresult._source.note}}</div>\n' +
+    '\n' +
+    '    <ul class="list-group">\n' +
+    '        <li ng-repeat="entry in entriesShort | orderBy:\'-createdAt\' | filter:keyword">\n' +
+    '            <div class="smooth-brd list-group-item list-group-item-inner is-clickable" ng-click="broadCastEntryLoad(entry.id)">\n' +
+    '                <p><small>{{entry.prettyDate}} | {{entry.author}}</small></p>\n' +
+    '                <div ng-bind-html="entry.excerpt"></div>\n' +
+    '\n' +
+    '                <div class="btn-group">\n' +
+    '                    <a title="Delete this entry" href="#" class="btn btn-primary" ng-disabled="!xp.search" ng-click="deleteAndNew(entry.id)">\n' +
+    '                        <span class="fui-cross"></span>\n' +
+    '                    </a>\n' +
+    '                </div>\n' +
+    '\n' +
+    '            </div>\n' +
     '        </li>\n' +
     '    </ul>\n' +
-    '</div>\n' +
     '\n' +
-    '\n' +
-    '<!--\n' +
-    '    listController\n' +
-    '-->\n' +
-    '<div ng-controller="ListController">\n' +
-    '    <!--\n' +
-    '        To do: Sort by Last Modified date\n' +
-    '    -->\n' +
-    '    <article class="entry row" ng-repeat="entry in entries">\n' +
-    '        <entry-item></entry-item>\n' +
-    '    </article>\n' +
     '</div>\n' +
     '');
 }]);

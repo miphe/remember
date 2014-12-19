@@ -43,27 +43,21 @@
                             </div>
 
                             <div class="btn-group">
-                                <a title="Save entry and create a new" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-close-btn" tabindex="2" ng-click="closeAndNew()">
+                                <a title="Save entry and continue writing on it" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-save-btn" tabindex="2" ng-click="saveEntry()">
+                                    <span class="fui-folder"></span>
+                                </a>
+                                <a title="Create new entry and save current" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-close-btn" tabindex="3" ng-click="closeAndNew()">
                                     <span class="fui-check"></span>
                                 </a>
-                                <a title="Create new entry without saving current" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-reset-btn" tabindex="2" ng-click="resetEntry()">
-                                    <span class="fui-cross"></span>
+                                <a title="Create new entry without saving current" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-reset-btn" ng-click="resetEntry()">
+                                    <span class="fui-plus"></span>
                                 </a>
-                                <a title="Delete all saved entries" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-destroy-btn" tabindex="2" ng-click="deleteAll()">
+                                <a title="Delete all saved entries" href="#" class="btn btn-primary" ng-disabled="!xp.write" id="entry-destroy-btn" ng-click="deleteAll()">
                                     <span class="fui-loop"></span>
                                 </a>
                             </div>
 
                         </form>
-                        <h4>Saved entries..</h4>
-                        <ul class="list-group">
-                            <li ng-repeat="entry in entriesShort | orderBy:'-createdAt'">
-                                <div class="list-group-item list-group-item-inner is-clickable" ng-click="loadEntry(entry.id)">
-                                    <p><small>{{entry.createdAt}} | {{entry.author}}</small></p>
-                                    <div ng-bind-html="entry.excerpt"></div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div><!-- /.panel-inner -->
             </div>

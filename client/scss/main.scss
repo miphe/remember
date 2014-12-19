@@ -55,3 +55,12 @@ $flex-panel-width:  30px;
     }
 }
 
+.smooth-brd {
+    border: 2px solid #ECF0F1;
+    -webkit-transition: border-color .25s linear;
+            transition: border-color .25s linear;
+
+    &:hover {
+        border-color: #16A085;
+    }
+}
