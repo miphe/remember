@@ -61,6 +61,7 @@
     "morgan": "~1.0.0",
     "underscore": "~1.6.0",
     "angular-hotkeys": "~1.4.5",
-    "angular-sanitize": "0.0.1"
+    "angular-sanitize": "0.0.1",
+    "dateformat": "^1"
   }
 }

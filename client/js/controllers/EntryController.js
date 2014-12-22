@@ -6,24 +6,41 @@ var _ = require('underscore');
 require('../jq-extends/jq-extends');
 require('angular-hotkeys');
 
-module.exports = function($scope, hotkeys) {
+module.exports = function($scope, hotkeys, EntryService) {
 
-    // TODO: Get entry from DB, or set it to ''
-    $scope.entryContent = "# My entry title";
+    $scope.entry = EntryService.new();
+
+    $scope.updateExistingEntriesList = function() {
+        $scope.entriesShort = EntryService.allSavedEntriesShort();
+    };
+
+    $scope.deleteAll = function() {
+        if (confirm('Destroy all entries?')) {
+            EntryService.destroyAll();
+            $scope.updateExistingEntriesList();
+        } else {
+            return;
+        }
+    };
 
     $scope.closeAndNew = function() {
         $scope.saveEntry();
         $scope.resetEntry();
+        $scope.updateExistingEntriesList();
     };
 
     $scope.saveEntry = function() {
-        // TODO: Update existing entry or create new entry
-        console.log('Saving to db..');
+        EntryService.saveEntry($scope.entry);
     };
 
     $scope.resetEntry = function() {
-        console.log('Resetting entry content..');
-        $scope.entryContent = "# ";
+        $scope.entry = EntryService.new();
+    };
+
+    $scope.loadEntry = function(id) {
+        $scope.previousEntry = $scope.entry;
+        var newEntry = EntryService.entryById(id);
+        $scope.entry = newEntry;
     };
 
     // Entry Hotkeys
@@ -54,4 +71,6 @@ module.exports = function($scope, hotkeys) {
     _.each($scope.hotkeys, function(itm) {
         hotkeys.add(itm);
     });
+
+    $scope.updateExistingEntriesList();
 };

@@ -23,6 +23,10 @@ $flex-panel-width:  30px;
     display: none;
 }
 
+.is-clickable {
+    cursor: pointer;
+}
+
 // _entry-list-item-footer
 .panel {
     h1 {

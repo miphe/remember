@@ -6,6 +6,7 @@ var angular = require('angular'),
 
 require('angular-local-storage');
 require('./modules/AuthService');
+require('./modules/EntryStorage');
 
 /* Runs index.js in ./controllers */
 require('./controllers');

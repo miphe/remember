@@ -15,16 +15,18 @@ describe("GeneralDirectives", function() {
         var template = '<entry-markdown></entry-markdown>';
 
         beforeEach(function() {
-            // angular.module('templates');
             angular.module('myApp.directives');
         });
 
         beforeEach(inject(function($rootScope, $compile) {
             $scope = $rootScope.$new();
+            $scope.entry = { content: { body: '# Standard title' } };
+            // $scope.renderPreview = sinon.spy();
 
-            // $scope.entryContent = '# Test data';
             compiled = $compile(template)($scope);
+
             $scope.$apply();
+            console.log($scope);
         }));
 
         afterEach(function() {
@@ -44,21 +46,15 @@ describe("GeneralDirectives", function() {
         // should NOT be disabled if panel is open
         // should have tabindex 1
 
-        // should call renderPreview function when model changes
-        it('should call renderPreview function when model changes', function() {
-            var el = $(compiled).find('#entry-textarea');
+        xit('should call renderPreview function when model changes', function() {
+            // expect($scope.renderPreview.called, 'expect not to be called').to.be.false;
 
-            $scope.renderPreview = sinon.spy();
+            var el = compiled.find('textarea');
+            $(el).val('# A New Title!');
+
             $scope.$apply();
 
-            console.log($(compiled));
-            console.log($scope.entryContent);
-            expect($scope.renderPreview.calledOnce).to.be.true;
-        });
-
-        xit('should run test..', function() {
-            console.log(compiled.find('#entry-textarea'));
-            expect(false).to.be.true;
+            // expect($scope.renderPreview.calledOnce, 'expect called once').to.be.true;
         });
     });
 });
