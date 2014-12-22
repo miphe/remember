@@ -9,14 +9,19 @@ var Ctrl = require('../../js/controllers/EntryController.js');
 describe("EntryController", function() {
     var $scope,
         hotkeys,
-        EntryService;
+        EntryService,
+        saveEntry,
+        resetEntry,
+        listRender,
+        deleteEntry;
 
     beforeEach(inject(function(_$rootScope_) {
         $scope = _$rootScope_.$new();
         hotkeys = { add : sinon.stub() };
         EntryService = {
+            mock: true,
             new: sinon.stub().returns({
-                content: { body: '# MyTitle'}
+                content: { body: '# MyTitle', mock: true}
             }),
             allSavedEntriesShort: sinon.stub(),
             hasChanges: sinon.stub(),
@@ -27,45 +32,57 @@ describe("EntryController", function() {
         Ctrl(_$rootScope_, $scope, hotkeys, EntryService);
     }));
 
-    describe("Entry", function() {
+    it('should have an OK scope', function() {
+        expect($scope).to.be.ok;
+        expect($scope).to.be.an('object');
+    });
 
-        var saveEntry,
-            resetEntry;
+    it('should set default entry if there\'s none in session', function() {
+        expect($scope.entry.content.body).to.have.string('# MyTitle');
+    });
 
+    it('should reset an entry', function() {
+        var a = EntryService.new.callCount;
+        expect($scope.entry.content.body).to.equal('# MyTitle');
+        $scope.resetEntry();
+        var b = EntryService.new.callCount;
+        expect(b > a).to.be.true;
+    });
+
+    describe("Helper methods", function() {
         beforeEach(function() {
             saveEntry = sinon.spy($scope, 'saveEntry');
             resetEntry = sinon.spy($scope, 'resetEntry');
+            deleteEntry = sinon.spy($scope, 'deleteEntry');
+            listRender = sinon.spy($scope, 'broatcastListRender');
         });
 
         afterEach(function() {
             saveEntry.restore();
-            resetEntry.restore()
+            resetEntry.restore();
+            deleteEntry.restore();
+            listRender.restore();
         });
 
-        it('should set default entry if there\'s none in session', function() {
-            expect($scope).to.be.ok;
-            expect($scope).to.be.an('object');
-            expect($scope.entry.content.body).to.have.string('# MyTitle');
-        });
-
-        it('should close entry and create new', function() {
+        it('should run closeAndNew methods', function() {
             expect($scope.closeAndNew).to.be.a('function');
 
-            // Run the closeAndNew() function
             $scope.closeAndNew();
 
             expect(saveEntry.calledOnce).to.be.true;
             expect(resetEntry.calledOnce).to.be.true;
+            expect(listRender.calledOnce).to.be.true;
             expect(saveEntry.calledBefore(resetEntry)).to.be.true;
         });
 
-        // Needs to be re-written
-        xit('should reset an entry', function() {
-            expect($scope.entry.content.body).to.equal('# MyTitle');
-            $scope.resetEntry();
-            expect($scope.entry.content.body).to.equal('# MyTitle');
-        });
+        it('should run deleteAndNew methods', function() {
+            expect($scope.deleteAndNew).to.be.a('function');
 
+            $scope.deleteAndNew('mock-id-123', true);
+            console.log($scope.deleteAndNew);
+            expect(deleteEntry.calledOnce).to.be.true;
+            expect(resetEntry.calledOnce).to.be.true;
+        });
     });
 
     describe("Hotkeys", function() {

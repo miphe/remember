@@ -30,7 +30,6 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
     $scope.previewEl = $('.preview-container');
 
     $scope.broatcastListRender = function() {
-        console.log('Broadcasting listrender.');
         $rootScope.$broadcast('listRender');
     };
 
@@ -89,11 +88,18 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
         $($scope.previewEl).html(Marked(n));
     };
 
-    $scope.deleteAndNew = function(id) {
-        if (confirm('Really delete this entry?')) {
+    $scope.deleteAndNew = function(id, shortCircuit) {
+        var exec = function() {
             $scope.deleteEntry(id);
             $scope.resetEntry();
+        };
+
+        if (shortCircuit) {
+            exec();
         } else {
+            if (confirm('Really delete this entry?')) {
+                exec();
+            }
             return false;
         }
     };
