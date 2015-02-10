@@ -37,8 +37,75 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
         $rootScope.$broadcast('entryLoad', id);
     };
 
-    $scope.updateExistingEntriesList = function() {
+    $scope.setExistingEntriesList = function() {
         $scope.entriesShort = EntryService.allSavedEntriesShort();
+    };
+
+    $scope.updateExistingEntriesList = function() {
+        var diff = $scope.deduceEntryDiff();
+
+        var toAdd = diff.addedItems();
+        _.each(toAdd, function(itm) {
+            $scope.entriesShort.push(itm);
+        });
+
+        var toDel = diff.removedItems();
+        _.each(toDel, function(itm) {
+            var i = $scope.entriesShort.indexOf(itm);
+            if (i > -1) {
+                $scope.entriesShort.splice(i, 1);
+            }
+        });
+
+        if (_.flatten([toAdd, toDel]).length < 1) {
+            // TODO: Instead of setting all entries like this
+            // we should write a function like 'syncEntries'.
+            // This function would require each entry to have something like
+            // a token or a revision stamp that is updated every time it is saved.
+            // That way we can easily see if the entry is updated,
+            // without needing to compare the content.
+
+            // We should also have revision numbers on each entry, so we can with
+            // certainty check if one version is newer or older than the next.
+            $scope.setExistingEntriesList();
+        }
+    };
+
+    // Should be moved to service? Not sure.
+    $scope.deduceEntryDiff = function() {
+        return {
+
+            // Returns true if the arg entry exists in model (check by ID)
+            inModel: function(entry) {
+                return _.any($scope.entriesShort, function(itm) {
+                    return _.isEqual(entry.id, itm.id);
+                });
+            },
+
+            // Returns true if the arg entry exists in local storage (check by ID)
+            inStorage: function(entry) {
+                return _.any(EntryService.allSavedEntriesShort(), function(itm) {
+                    return _.isEqual(entry.id, itm.id);
+                });
+            },
+
+            // Returns all items present in localstorage, but not present in model.
+            addedItems: function() {
+                var that = this;
+                return _.reject(EntryService.allSavedEntriesShort(), function(itm) {
+                    return that.inModel(itm);
+                });
+            },
+
+            // Returns all items NOT present in localstorage, but present in model.
+            removedItems: function() {
+                var that = this;
+                return _.reject($scope.entriesShort, function(itm) {
+                    return that.inStorage(itm);
+                });
+            }
+
+        };
     };
 
     $scope.deleteAll = function() {
@@ -125,7 +192,10 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
     });
 
     $scope.$on('listRender', function (e, id) {
+        // TODO: make sure that updates to existing entries also is updated in the model
+        // thus, it will show on the page as well. Cheers.
         $scope.updateExistingEntriesList();
+        // $scope.setExistingEntriesList();
     });
 
     // Entry Hotkeys
@@ -157,5 +227,5 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
         hotkeys.add(itm);
     });
 
-    $scope.updateExistingEntriesList();
+    $scope.setExistingEntriesList();
 };

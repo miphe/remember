@@ -64,3 +64,24 @@ $flex-panel-width:  30px;
         border-color: #16A085;
     }
 }
+
+.entry-item-animate {
+    &.ng-move,
+    &.ng-enter,
+    &.ng-leave {
+        transition:height .5s;
+    }
+
+    &.ng-leave.ng-leave-active,
+    &.ng-move,
+    &.ng-enter {
+      overflow: hidden;
+      height:0;
+    }
+
+    &.ng-leave,
+    &.ng-move.ng-move-active,
+    &.ng-enter.ng-enter-active {
+      height:152px;
+    }
+}

@@ -15,7 +15,7 @@ module.run(['$templateCache', function($templateCache) {
     '    </form>\n' +
     '\n' +
     '    <ul class="list-group">\n' +
-    '        <li ng-repeat="entry in entriesShort | orderBy:\'-createdAt\' | filter:keyword">\n' +
+    '        <li class="entry-item-animate" ng-repeat="entry in entriesShort | orderBy:\'-createdAt\' | filter:keyword">\n' +
     '            <article class="smooth-brd list-group-item list-group-item-inner is-clickable" ng-click="broadcastEntryLoad(entry.id)">\n' +
     '\n' +
     '                <p><small>{{entry.prettyDate}} | {{entry.author}}</small></p>\n' +
