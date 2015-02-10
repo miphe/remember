@@ -14,7 +14,7 @@
                 <div ng-bind-html="entry.excerpt"></div>
 
                 <div class="btn-group">
-                    <a title="Delete this entry" href="#" class="btn btn-primary" ng-disabled="!xp.search" ng-click="deleteAndNew(entry.id)">
+                    <a title="Delete this entry" href="#" class="btn btn-primary" ng-disabled="!xp.search" ng-click="deleteAndNew(entry.id, false, $index)">
                         <span class="fui-cross"></span>
                     </a>
                 </div>

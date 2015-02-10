@@ -26,6 +26,15 @@ require('angular-hotkeys');
 
 module.exports = function($rootScope, $scope, hotkeys, EntryService) {
 
+    // Returns a message depending on code.
+    var feedback = function(code) {
+        return {
+            1: 'Comparing revision of different entries. Aborting.',
+            2: 'Several entries in the model has the same ID as a stored entry. Aborting.',
+            3: 'Really delete this entry?'
+        }[code];
+    };
+
     $scope.entry = EntryService.new();
     $scope.previewEl = $('.preview-container');
 
@@ -41,6 +50,52 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
         $scope.entriesShort = EntryService.allSavedEntriesShort();
     };
 
+    // Returns true if the entry version in localstorage
+    // differs from the entry version in model
+    // (means there's been an update)
+    $scope.sameVersion = function(storedEntry, modelEntry) {
+        if (_.isEqual(storedEntry.id, modelEntry.id)) {
+            return _.isEqual(storedEntry.version, modelEntry.version);
+        } else {
+            console.warn(feedback(1));
+            return null;
+        }
+    };
+
+    // Updates an entry with new content if stored versions differ.
+    $scope.synchEntry = function(storedEntry) {
+        var etr = _.filter($scope.entriesShort, function(modelEntry) {
+            return _.isEqual(storedEntry.id, modelEntry.id);
+        });
+
+        if (etr.length > 1) { console.warn(feedback(2)); return; }
+
+        var idx = $scope.entriesShort.indexOf(etr[0]);
+        $scope.entriesShort[idx] = storedEntry;
+    };
+
+    // Goes through all entries, investigating if they need updating.
+    $scope.synchAllEntries = function() {
+        var needOfSynch = _.filter(EntryService.allSavedEntriesShort(), function(storedEntry) {
+            // Find with ID from model
+            var modelEntry = _.filter($scope.entriesShort, function(it) {
+                return _.isEqual(it.id, storedEntry.id);
+            });
+
+            if (modelEntry.length > 1) {
+                console.warn(feedback(2));
+            }
+
+            var synched = $scope.sameVersion(storedEntry, modelEntry[0]);
+            return !synched;
+        });
+
+        _.each(needOfSynch, function(entry) {
+            $scope.synchEntry(entry);
+        });
+    };
+
+    // Adds or removes entries from list model.
     $scope.updateExistingEntriesList = function() {
         var diff = $scope.deduceEntryDiff();
 
@@ -56,19 +111,6 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
                 $scope.entriesShort.splice(i, 1);
             }
         });
-
-        if (_.flatten([toAdd, toDel]).length < 1) {
-            // TODO: Instead of setting all entries like this
-            // we should write a function like 'syncEntries'.
-            // This function would require each entry to have something like
-            // a token or a revision stamp that is updated every time it is saved.
-            // That way we can easily see if the entry is updated,
-            // without needing to compare the content.
-
-            // We should also have revision numbers on each entry, so we can with
-            // certainty check if one version is newer or older than the next.
-            $scope.setExistingEntriesList();
-        }
     };
 
     // Should be moved to service? Not sure.
@@ -164,7 +206,7 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
         if (shortCircuit) {
             exec();
         } else {
-            if (confirm('Really delete this entry?')) {
+            if (confirm(feedback(3))) {
                 exec();
             }
             return false;
@@ -192,10 +234,8 @@ module.exports = function($rootScope, $scope, hotkeys, EntryService) {
     });
 
     $scope.$on('listRender', function (e, id) {
-        // TODO: make sure that updates to existing entries also is updated in the model
-        // thus, it will show on the page as well. Cheers.
         $scope.updateExistingEntriesList();
-        // $scope.setExistingEntriesList();
+        $scope.synchAllEntries();
     });
 
     // Entry Hotkeys

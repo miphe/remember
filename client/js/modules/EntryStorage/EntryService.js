@@ -46,6 +46,12 @@ module.exports = function(AuthService, localStorageService) {
       };
     })();
 
+    var stamp = (function() {
+        return function() {
+            return 'version-' + guid();
+        };
+    })();
+
     // Let's keep the below code relevant
 
     self.new = function() {
@@ -54,6 +60,7 @@ module.exports = function(AuthService, localStorageService) {
         } else {
             return {
                 "id":        guid(),
+                "version":   stamp(),
                 "createdAt": new Date(),
                 "createdBy": formatUserName('fullName', currentUser()),
                 "content": {
@@ -63,8 +70,14 @@ module.exports = function(AuthService, localStorageService) {
         }
     };
 
+    self.updateEntryVersion = function(entry) {
+        entry.version = stamp();
+        return entry;
+    };
+
     self.saveEntry = function(entry) {
         var key = this.keyIfyId(entry.id);
+        entry = this.updateEntryVersion(entry);
         localStorageService.set(key, JSON.stringify(entry));
     };
 
@@ -91,6 +104,7 @@ module.exports = function(AuthService, localStorageService) {
         var excerpt = entry.content.body.match(/^.{0,70}(\w{1})/g) + ' ...';
         return {
             "id":         id,
+            "version":    entry.version,
             "prettyDate": dateFormat(entry.createdAt),
             "createdAt":  entry.createdAt,
             "author":     formatUserName('shortName', currentUser()),
